@@ -1,0 +1,21 @@
+<h3>Scarica</h3>
+<div class="">
+  Seleziona quantità scaricata, e l'operatore a cui verrà consegnata l'attrezzatura
+</div>
+<div class="">
+  {{input type="text" name="quantity" value=quantity id="quantity"}}
+  <label for="quantity">Quantità</label>
+</div>
+<div class="">
+  <select class="" name="operators" id="operators" onchange={{action "updateSelectedOp" value="target.value"}}>
+    {{#each this.operators as |operator|}}
+    <option value={{operator.id}}>{{operator.name}} {{operator.surname}}</option>
+    {{/each}}
+  </select>
+  <label for="operators">Operatore ricevente</label>
+</div>
+<div class="">
+  <button type="button" name="confirmDisharge" {{action "confirmDisharge"}}>Conferma</button>
+</div>
+
+{{outlet}}

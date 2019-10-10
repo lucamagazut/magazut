@@ -1,0 +1,50 @@
+
+<table class="contraption_list_table">
+  {{!-- <caption>Lista</caption> --}}
+  <thead>
+    <tr>
+      <th>Denominazione</th>
+      <th>Tipo di utensile</th>
+      <th>Geometria</th>
+      <th>Macchinario</th>
+      <th>Materiale di lavorazione</th>
+      <th>Codice</th>
+      <th title="Quantità disponibile">Quantità</th>
+      <th>Stato</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.list as |ut| }}
+      <tr  {{action "onClickContraption" ut}}>
+        <td class="denomination">{{ut.denomination}}</td>
+        <td>{{ut.typeName}}</td>
+        <td>
+          <ul>
+            {{#if ut.ut-rad-ins}}
+              <li>Raggio inserto: {{ut.ut-rad-ins}}</li>
+            {{/if}}
+            {{#if ut.ut-long}}
+              <li>Lunghezza: {{ut.ut-long}}</li>
+            {{/if}}
+            {{#if ut.ut-thick}}
+              <li>Spessore: {{ut.ut-thick}}</li>
+            {{/if}}
+            {{#if ut.ut-dia}}
+              <li>Diametro: {{ut.ut-dia}}</li>
+            {{/if}}
+            {{#if ut.ut-deg}}
+              <li>Angolo: {{ut.ut-deg}}</li>
+            {{/if}}
+          </ul>
+        </td>
+        <td>{{ut.machineName}}</td>
+        <td class="material">{{ut.materialName}}</td>
+        <td>{{ut.idCode}}</td>
+        <td class="available_qt" title="Quantità disponibile">{{ut.availableQt}}</td>
+        <td class="order_state_color_{{ut.state}}">{{ut.textState}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{yield}}

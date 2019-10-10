@@ -1,0 +1,42 @@
+.search_contraption{
+  h2{
+    padding-top: 1em;
+  }
+  padding:0.5em;
+
+  .momentaneo{
+    margin-top: 100px;
+  }
+
+  .search{
+    padding-top: 2em;
+
+  }
+
+  .magnifier_glass{
+    width: auto;
+    height: 2em;
+    vertical-align: middle;
+    padding-left: 1.5em;
+  }
+
+  #searchTextInput{
+    vertical-align: middle;
+    border: none;
+    padding:0.5em;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    width: 20%;
+    &:focus{
+      border-bottom: 2px solid $text-input-border-color;
+      border-left: 2px solid $text-input-border-color;
+      &::placeholder{
+        opacity: 0.2;
+      }
+    }
+    &::placeholder{
+
+    }
+  }
+
+}

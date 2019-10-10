@@ -1,0 +1,42 @@
+<h3>Form</h3>
+
+<form class="" action="" method="post">
+  <label for="denomination">Descrizione</label>
+  {{input type="text" id="denomination" name="denomination" value=this.model.denomination}}
+  <br/>
+    <label for="idCode">Codice identificativo</label>
+  {{input type="text" name="idCode" id="idCode" value=this.model.idCode}}
+  <br/>
+  <label for="availableQt">Quantità</label>
+  {{input type="text" name="availableQt" value=this.model.availableQt}}
+  <br/>
+  <label for="minQt">Quantità minima</label>
+  {{input type="text" name="minQt" value=this.model.minQt}}
+  <br/>
+  <fieldset>
+    <legend>Geometria</legend>
+    <label for="ut-long">Lunghezza</label>
+    {{input type="text" name="ut-long" value=this.model.ut-long}}
+    <br/>
+
+    <label for="ut-thick">Spessore</label>
+    {{input type="text" name="ut-thick" value=this.model.ut-thick}}
+    <br/>
+
+    <label for="ut-rad-ins">Raggio</label>
+    {{input type="text" name="ut-rad-ins" value=this.model.ut-rad-ins}}
+    <br/>
+
+    <label for="ut-dia">Diametro</label>
+    {{input type="text" name="ut-dia" value=this.model.ut-dia}}
+    <br/>
+
+    <label for="ut-deg">Angolo</label>
+    {{input type="text" name="ut-deg" value=this.model.ut-deg}}
+    <br/>
+
+  </fieldset>
+  <input type="button" name="createContraption" value="Crea" {{action "createContraption" this.model}}>
+</form>
+
+{{yield}}

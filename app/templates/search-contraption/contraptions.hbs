@@ -1,0 +1,11 @@
+
+<div class="contraptions_main_cont">
+  <div class="result_text">
+    Trovati <strong>{{this.findedItems}}</strong> aggeggi
+  </div>
+  <ContraptionList @showContraption={{action "showContraption"}} @list={{this.model}}/>
+</div>
+
+
+
+{{outlet}}

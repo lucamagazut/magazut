@@ -1,0 +1,15 @@
+<div class="search">
+
+  {{input
+    id="searchTextInput"
+    type="text"
+    placeholder="scrivi qui"
+    value=searchTextInputValue
+    enter=(action "onEnterInput" "searchButton")}}
+  {{#link-to "search-contraption.contraptions" (query-params text=searchTextInputValue) id="searchButton"}}
+    <img src="/assets/images/magnifier.svg" class="magnifier_glass" alt="trova!">
+  {{/link-to}}
+
+</div>
+
+{{yield}}

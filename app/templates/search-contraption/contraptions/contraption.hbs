@@ -1,0 +1,65 @@
+<div id="show_contraption_main">
+  <div class="popup">
+    <a href="#" class="close_icon" {{action 'back'}}></a>
+    <div class="popup_inner">
+      <h4>{{this.model.denomination}}</h4>
+
+      <ul class="list_info">
+        <li>{{this.model.idCode}}</li>
+        <li>
+          <span>{{this.model.typeName}}</span>
+          <span> || </span>
+          <span>{{this.model.machineName}}</span>
+        </li>
+        <li>
+          <ul>
+            {{#if this.model.ut-rad-ins}}
+              <li>Raggio inserto: {{this.model.ut-rad-ins}}</li>
+            {{/if}}
+            {{#if this.model.ut-long}}
+              <li>Lunghezza: {{this.model.ut-long}}</li>
+            {{/if}}
+            {{#if this.model.ut-thick}}
+              <li>Spessore: {{this.model.ut-thick}}</li>
+            {{/if}}
+            {{#if this.model.ut-dia}}
+              <li>Diametro: {{this.model.ut-dia}}</li>
+            {{/if}}
+            {{#if this.model.ut-deg}}
+              <li>Angolo: {{this.model.ut-deg}}</li>
+            {{/if}}
+          </ul>
+        </li>
+        <li>
+          <span>Materiale Lav: </span>
+          <span>{{this.model.materialName}}</span>
+        </li>
+        <li>
+          <span>Quantità: {{this.model.availableQt}}</span>
+          <span> == </span>
+          <span class="order_state_color_{{this.model.state}}">{{this.model.textState}}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="buttons">
+      <div class="inner clearfix">
+        <div class="left">
+          {{#link-to 'search-contraption.contraptions.contraption.discharge'}}
+          Scarica
+          {{/link-to}}
+        </div>
+        <div class="right">
+          {{#link-to 'search-contraption.contraptions.contraption.charge'}}
+          Carica
+          {{/link-to}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="overlay"></div>
+
+</div>
+
+
+{{outlet}}
