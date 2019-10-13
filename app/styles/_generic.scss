@@ -38,6 +38,17 @@ h2{
   font-size: 1.8em;
 }
 
+.space_t_normal{
+  padding-top: 1em;
+}
+.space_t_half{
+  padding-top: 0.5em;
+}
+
+.space_b_normal{
+  padding-bottom: 1em;
+}
+
 .overlay{
   background-color: black;
   position: fixed;
@@ -63,6 +74,20 @@ h2{
   }
 }
 
+button.button{
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  &:hover{
+    text-decoration: overline;
+  }
+}
+
+.buttons, button.button{
+  font-size: 1.3em;
+}
+
 .order_state_color_0{
   background-color: red;
 }
@@ -74,6 +99,48 @@ h2{
 // }
 .order_state_color_4{
   background-color: azure;
+}
+
+.to_left{
+  text-align: left;
+  &>{
+    display: inline-block;
+  }
+}
+
+.to_right{
+  text-align: right;
+  &>{
+    display: inline-block;
+  }
+}
+
+.half_width{
+  width: 50%;
+}
+
+.input_text{
+  vertical-align: middle;
+  border: none;
+  padding:0.5em;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  &:focus{
+    border-bottom: 2px solid $text-input-border-color;
+    border-left: 2px solid $text-input-border-color;
+    &::placeholder{
+      opacity: 0.2;
+    }
+  }
+  &::placeholder{
+
+  }
+
+}
+
+select{
+  padding:0.5em;
+  font-size: 1.2em;
 }
 
 .close_icon {

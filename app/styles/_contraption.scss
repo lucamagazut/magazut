@@ -1,4 +1,8 @@
 #show_contraption_main{
+  h3{
+    font-weight: bold;
+    font-size: 1.5em;
+  }
   h4{
     font-weight: bold;
     font-size: 1.3em;
@@ -15,7 +19,6 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    font-size: 1.3em;
     .inner{
       padding: 1em;
       .right{
@@ -26,4 +29,8 @@
       }
     }
   }
+}
+
+#main_charge_contraption{
+
 }

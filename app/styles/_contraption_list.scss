@@ -2,35 +2,5 @@
   .result_text{
     padding-top:2em;
   }
-  table.contraption_list_table{
-    display: block;
-    width: 100%;
-    padding-top:2em;
-    thead{
-      border-bottom: 2px solid black;
-    }
-    th{
-      font-size: 1.3em;
-      line-height: 1.1em;
-      font-weight: bold;
-      padding-bottom: 0.5em;
-    }
-    tbody{
-      border-bottom: 2px solid black;
-      tr{
-        cursor: pointer;
-      }
-      td{
-        padding:1em 0.5em;
-        border-right: 1px solid black;
-      }
-      .material{
-        width: 23ex;
-      }
-      .available_qt{
-        text-align: center;
-      }
-    }
-  }
 
 }

@@ -7,7 +7,7 @@ export default Controller.extend({
 
   actions:{
     showContraption(currentModelId){
-      this.transitionToRoute('search-contraption.contraptions.contraption',currentModelId);
+      this.transitionToRoute('search-contraption.contraptions.contraption.show',currentModelId);
     }
   }
 });

@@ -1,21 +1,43 @@
-<h3>Scarica</h3>
-<div class="">
-  Seleziona quantità scaricata, e l'operatore a cui verrà consegnata l'attrezzatura
-</div>
-<div class="">
-  {{input type="text" name="quantity" value=quantity id="quantity"}}
-  <label for="quantity">Quantità</label>
-</div>
-<div class="">
-  <select class="" name="operators" id="operators" onchange={{action "updateSelectedOp" value="target.value"}}>
-    {{#each this.operators as |operator|}}
-    <option value={{operator.id}}>{{operator.name}} {{operator.surname}}</option>
-    {{/each}}
-  </select>
-  <label for="operators">Operatore ricevente</label>
-</div>
-<div class="">
-  <button type="button" name="confirmDisharge" {{action "confirmDisharge"}}>Conferma</button>
+
+<div id="main_charge_contraption">
+  <div class="popup">
+    <a href="#" class="close_icon" {{action 'back'}}></a>
+    <div class="popup_inner">
+      <h3>Scarica</h3>
+      <div class="space_t_half">
+        Seleziona quantità scaricata, e l'operatore a cui verrà consegnata l'attrezzatura
+      </div>
+      <ul class="list_info">
+        <li><h4>{{this.model.denomination}}</h4></li>
+        <li>{{this.model.idCode}}</li>
+        <li>
+          <span>Quantità corrente: {{this.model.availableQt}}</span>
+          <span> == </span>
+          <span class="order_state_color_{{this.model.state}}">{{this.model.textState}}</span>
+        </li>
+      </ul>
+
+      <div class="space_t_normal">
+        {{input type="text" name="quantity" value=quantity id="quantity" class="input_text" placeholder="Scrivi quantità"}}
+      </div>
+      <div class="space_t_normal">
+        <select class="" name="operators" id="operators" onchange={{action "updateSelectedOp" value="target.value"}}>
+          {{#each this.operators as |operator|}}
+          <option value={{operator.id}}>{{operator.name}} {{operator.surname}}</option>
+          {{/each}}
+        </select>
+        <label for="operators">Operatore ricevente</label>
+      </div>
+
+    </div>
+    <div class="space_b_normal">
+      <div class="space_t_half to_right">
+        <button type="button" class="button" name="confirmDisharge" {{action "confirmDisharge"}}>Conferma</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="overlay"></div>
 </div>
 
 {{outlet}}
