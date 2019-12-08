@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
   chargeApi: service('charge-api'),
   chargeValidator(){
+    //lato server?
     return true;
   },
   beforeModel(){

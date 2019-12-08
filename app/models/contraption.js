@@ -4,19 +4,27 @@ import { computed } from '@ember/object';
 
 export default DS.Model.extend({
   denomination: DS.attr(),
-  type: DS.belongsTo('contraption-type'),
-  typeName:computed('type',function(){
-    return this.type.get('name');
-  }),
-  "subType": DS.belongsTo('contraption-sub-type'),
-  material: DS.belongsTo('work-material'),
-  materialName:computed('material',function(){
-    return this.material.get('name');
-  }),
-  machine: DS.belongsTo('machine'),
-  machineName:computed('machine',function(){
-    return this.machine.get('name');
-  }),
+  type:DS.attr('number'),
+  typeName:DS.attr(),
+
+  // DS.belongsTo('contraption-type'),
+  // typeName:computed('type',function(){
+  //   return this.type.get('name');
+  // }),
+  // "subType": DS.belongsTo('contraption-sub-type'),
+  //material: DS.belongsTo('work-material'),
+  material: DS.attr('number'),
+  materialName:DS.attr(),
+  // materialName:computed('material',function(){
+  //   return this.material.get('name');
+  // }),
+  machine: DS.attr('number'),
+  machineName: DS.attr(),
+   // DS.belongsTo('machine'),
+  // machineName:computed('machine',function(){
+  //   return this.machine.get('name');
+  // }),
+  purchaseRequest: DS.attr('string'),
   idCode: DS.attr(),//DS.belongsTo('id-code'),
   "availableQt": DS.attr('number'),
   "minQt": DS.attr('number'),

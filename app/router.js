@@ -12,6 +12,7 @@ Router.map(function() {
     this.route('contraption', { path: '/:contraption_id' }, function() {
       this.route('charge');
       this.route('dismiss');
+      this.route('show');
     });
   });
   this.route('add-contraption', function() {

@@ -1,7 +1,31 @@
-<h3>Sei sicuro di voler rimuovere questo elemento dalla lista degli esaurimenti?</h3>
-<p>(Azione consigliata solo se si prevede di non ordinare mai più questo elemento)</p>
+<div>
+  <div class="popup">
+    <a href="#" class="close_icon" {{action 'back'}}></a>
+    <div class="popup_inner">
+      <h4>{{this.model.denomination}}</h4>
+      <ul class="list_info">
+        <li>{{this.model.idCode}}</li>
+      </ul>
+      <div class="space_t_normal">
+        <h3>Sei sicuro di voler rimuovere questo elemento dalla lista degli esaurimenti?</h3>
+        <p class="hint space_t_half">(Azione consigliata solo se si prevede di non ordinare mai più questo elemento)</p>
+      </div>
+    </div>
+    <div class="buttons">
+      <div class="inner clearfix">
+        <div class="fleft">
+          <button type="button" name="button">No, torna indietro</button>
+        </div>
+        <div class="fright">
+          <button type="button" name="button">Sì, fallo!</button>
+        </div>
+      </div>
+    </div>
 
-<button type="button" name="button">No, torna indietro</button>
-<button type="button" name="button">Sì, fallo!</button>
+  </div>
+  <div class="overlay"></div>
+
+</div>
+
 
 {{outlet}}

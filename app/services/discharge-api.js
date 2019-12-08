@@ -4,6 +4,6 @@ import { inject as service } from '@ember/service';
 export default Service.extend({
   ajax: service('ajax'),
   send(modelId, qt, op){
-    return this.ajax.makeGet("/api/discharge", {id:modelId, qt:qt, op: op});
+    return this.ajax.makeGet("http://localhost:3000/api/discharge", {id:modelId, qt:qt, op: op}, "PUT");
   }
 });

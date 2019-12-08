@@ -1,8 +1,7 @@
 <MenuHeader></MenuHeader>
 
-<h1>Crea nuovo aggeggio</h1>
-
-
-<ContraptionForm @model={{this.model}} @createContraption={{action "createContraption"}}></ContraptionForm>
-
-{{outlet}}
+<div id="add_contraption_main">
+  <h2>Crea nuovo aggeggio</h2>
+  <ContraptionForm @model={{this.model}} @contraptionTypes={{this.contraption_types}} @machines={{this.machines}} @materials={{this.materials}} @createContraption={{action "createContraption"}}></ContraptionForm>
+  {{outlet}}
+</div>

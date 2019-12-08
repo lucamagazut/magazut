@@ -1,0 +1,75 @@
+
+
+{
+  filters:{
+    contraption_type:[
+      {
+        name:'punte',
+        tokens:['punta'],
+        id:[4,5,6,7],
+        subtypes:[
+          {
+            name:'hss',
+            id:[4],
+            tokens:['hss','superrapido']
+          },
+          {
+            name:'widia',
+            id:[5],
+            tokens:['widia','dura']
+          },
+          {
+            name:'cuspide',
+            id:[6],
+            tokens:['cuspide','a cuspide']
+          },
+          {
+            name:'inserti',
+            id:[7],
+            tokens:['inserti', 'a inserti', 'placchette']
+          }
+        ]
+      },
+      {
+        name:'frese',
+        id:[8,9,10,11,12],
+        tokens:['fresa'],
+        subtypes:[
+          {
+            name: 'inserti',
+            id:[8],
+            tokens:['inserti','placchette'],
+            subtype:[
+              {
+                name:'piko',
+                description:'piko'
+              },
+              {
+                name:'Per sgrossatura',
+                description:'sgrossa'
+              },
+              {
+                name:'Per finitura',
+                description:'finitura'
+              }
+            ]
+          }
+        ]
+      }
+
+
+    ]
+  }
+}
+
+
+/*i token nel db servono per affinare la ricerca?*/
+
+/*se il subtype non ha id, si tiene quello del parent e si usa ricerca su code_id
+!!!!!!!!!!!!!!! QUINDI NIENTE TOKENS NEL DB !!!!!!!!!!!!!!!!!!!!!!!
+*/
+
+
+/*
+id if it's referenced to some db stuff, description if it's references to text occorrencies on id_code
+*/

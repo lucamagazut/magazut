@@ -1,9 +1,22 @@
 import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
 export default Controller.extend({
   validateForm(){
     return true;
   },
+
+  materials:computed(function(){
+    return this.store.peekAll('work-material');
+  }),
+
+  contraption_types:computed(function(){
+    return this.store.peekAll('contraption-type');
+  }),
+
+  machines:computed(function(){
+    return this.store.peekAll('machine');
+  }),
 
   actions:{
     createContraption(){

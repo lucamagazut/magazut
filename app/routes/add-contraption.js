@@ -5,10 +5,12 @@ export default Route.extend({
   model(){
     this.currentModel = this.store.createRecord('contraption', {
       denomination:'',
-      type:0,
-      subType:0,
-      material:0,
-      machine:0,
+      type:1,
+      typeName:'',
+      material:1,
+      materialName:'',
+      machine:1,
+      machineName:'',
       idCode:'',
       availableQt:0,
       minQt:0,
@@ -21,6 +23,7 @@ export default Route.extend({
     });
     return this.currentModel;
   },
+
   actions:{
     refreshAfterSuccess(){
       this.refresh();

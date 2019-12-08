@@ -4,7 +4,7 @@
     <a href="#" class="close_icon" {{action 'back'}}></a>
     <div class="popup_inner">
       <h3>Scarica</h3>
-      <div class="space_t_half">
+      <div class="space_t_normal">
         Seleziona quantità scaricata, e l'operatore a cui verrà consegnata l'attrezzatura
       </div>
       <ul class="list_info">
@@ -18,7 +18,7 @@
       </ul>
 
       <div class="space_t_normal">
-        {{input type="text" name="quantity" value=quantity id="quantity" class="input_text" placeholder="Scrivi quantità"}}
+        {{input type="text" name="quantity" value=quantity id="quantity" class="input_text" placeholder="Scrivi quantità da scaricare"}}
       </div>
       <div class="space_t_normal">
         <select class="" name="operators" id="operators" onchange={{action "updateSelectedOp" value="target.value"}}>
