@@ -15,5 +15,9 @@ export default Controller.extend({
 
   machines:computed(function(){
     return this.store.peekAll('machine');
+  }),
+
+  order_statuses:computed(function(){
+    return this.store.peekAll('order_status');
   })
 });

@@ -10,9 +10,6 @@
     </li>
     <li>
       <label for="material">Materiale</label>
-
-
-
       <select class="" name="material" id="material">
         {{#each this.materials as |material|}}
         <option onclick={{action (mut this.model.material) material.id}} value={{material.id}}>{{material.name}}</option>
@@ -26,11 +23,6 @@
         <option onclick={{action (mut this.model.machine) machine.id}} value={{machine.id}}>{{machine.name}}</option>
         {{/each}}
       </select>
-      {{!-- <select class="" name="machineSelect" id="machineSelect"}}>
-        {{#each this.machines as |machine|}}
-        <option onclick={{action (mut this.model.machine) machine.id}} value={{machine.id}}>{{machine.name}}</option>
-        {{/each}}
-      </select> --}}
     </li>
     <li>
       <label for="contraptionTypesSelect">Tipologia</label>
@@ -40,14 +32,6 @@
         {{/each}}
       </select>
     </li>
-    {{!-- <li>
-      <label for="contraptionTypesSelect">Tipologia</label>
-      <select class="" name="contraptionTypesSelect" id="contraptionTypesSelect" }}>
-        {{#each this.contraptionTypes as |contraptionType|}}
-        <option onclick={{action (mut this.model.type) contraptionType.id}} value={{contraptionType.id}}>{{contraptionType.name}}</option>
-        {{/each}}
-      </select>
-    </li> --}}
     <li>
       <label for="availableQt">Quantità</label>
       {{input type="text" name="availableQt" value=this.model.availableQt}}

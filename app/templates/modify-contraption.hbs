@@ -56,6 +56,23 @@
         <label for="minQt">Quantità minima</label>
         {{input type="text" name="minQt" value=this.model.minQt}}
       </li>
+
+      <li>
+        <label for="orderStatus">Stato dell'ordine</label>
+        <select name="orderStatus">
+          {{#each this.order_statuses as |order_s|}}
+            {{#if (if-selected order_s.id this.model.order_status)}}
+            <option selected onclick={{action (mut this.model.order_status) order_s.id}} value={{order_s.id}}>{{order_s.order_status_name}}</option>
+            {{else}}
+            <option onclick={{action (mut this.model.order_status) order_s.id}} value={{order_s.id}}>{{order_s.order_status_name}}</option>
+            {{/if}}
+          {{/each}}
+        </select>
+      </li>
+      <li>
+        cacca : {{this.model.order_status}}
+      </li>
+
       <li>
         <label for="purchaseRequest">Richiesta acquisto</label>
         {{input type="text" name="purchaseRequest" value=this.model.purchaseRequest}}
