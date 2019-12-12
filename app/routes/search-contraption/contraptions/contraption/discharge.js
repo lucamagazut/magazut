@@ -16,14 +16,15 @@ export default Route.extend({
         let operator = this.get('controller').get('selectedOp');
         this.dischargeApi.send(this.currentModel.get('id'), qt, operator).then((resp) => {
           let availableQt = resp.data[0].attributes.availableQt;
-          let orderState = resp.data[0].attributes.orderState;
+          let order_status = resp.data[0].attributes.order_status;
           this.currentModel.set('availableQt', availableQt);
-          this.currentModel.set('orderState', orderState);
+          this.currentModel.set('order_status', order_status);
           alert('ok');
           this.transitionTo('search-contraption.contraptions');
         })
         .catch(function(error){
-          alert(error)
+          console.log(error);
+          alert('Qualcosa è andato storto. Controlla i dati e riprova');
         });
 
       }
