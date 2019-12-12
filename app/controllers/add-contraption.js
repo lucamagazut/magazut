@@ -26,7 +26,7 @@ export default Controller.extend({
           this.send('refreshAfterSuccess');
         })
         .catch(error=>{
-          alert('there is a problem, retry');
+          alert('Qualcosa è andato storto. Controlla i dati e riprova');
         });
       }
     }

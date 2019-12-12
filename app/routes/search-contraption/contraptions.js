@@ -31,7 +31,7 @@ export default Route.extend({
     // this.parseSearchText();
     let queryApi = this.Parser.getApiQuery(this.store, this.searchText);
     console.log(queryApi)
-    return thi  s.store.query('contraption',queryApi);
+    return this.store.query('contraption',queryApi);
   },
 
   Parser:(function(){
@@ -42,7 +42,7 @@ export default Route.extend({
       var preQueryObj = {};
 
       for(k in filterObj){
-        console.log('parsa '+ k);
+        // console.log('parsa '+ k);
 
         preQueryObj[k] = parseArray(filterObj[k], textToSearch);
       }
@@ -72,7 +72,7 @@ export default Route.extend({
       var queryObj = {};
 
       for(k in filterObj){
-        console.log('parsa '+ k);
+        // console.log('parsa '+ k);
         let text = searchGeometryOccurrences(filterObj[k], textToSearch);
 
         if(text !== ''){
@@ -110,7 +110,7 @@ export default Route.extend({
       let i;
       let len = tokenArray.length;
 
-      console.log('confronta '+ JSON.stringify(tokenArray) + '   '+ textToSearch);
+      // console.log('confronta '+ JSON.stringify(tokenArray) + '   '+ textToSearch);
 
       for(i=0; i<len; i++){
         if(textToSearch.includes(tokenArray[i])){

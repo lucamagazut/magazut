@@ -279,19 +279,49 @@ module.exports = function(app) {
   });
 
   contraptionsRouter.get('/:id', function(req, res) {
-    res.send({
-      'contraptions': {
-        id: req.params.id
-      }
-    });
+    res.send({data:
+      {
+        id: req.params.id,
+        "type": "contraption",
+        "attributes":{
+          "denomination": "utensile per CANI",
+          "subType": 1,
+          "idCode": "asd3333k3kk3k3k",
+          "purchaseRequest":"una scatola da 10pz",
+          "availableQt": 1,
+          "minQt": 2,
+          "state": 3,
+          "ut-long": 10,
+          "ut-thick": 0,
+          "ut-rad-ins": 0,
+          "ut-dia": 0,
+          "ut-deg": 0
+        }
+      }});
   });
 
   contraptionsRouter.put('/:id', function(req, res) {
-    res.send({
-      'contraptions': {
-        id: req.params.id
-      }
-    });
+    res.send({data:
+      {
+        id: req.params.id,
+        "type": "contraption",
+        "attributes":{
+          "denomination": "utensile per CANI",
+          "subType": 1,
+          "idCode": "asd3333k3kk3k3k",
+          "purchaseRequest":"una scatola da 10pz",
+          "availableQt": 1,
+          "minQt": 2,
+          "state": 3,
+          "ut-long": 10,
+          "ut-thick": 0,
+          "ut-rad-ins": 0,
+          "ut-dia": 0,
+          "ut-deg": 0
+        }
+      }});
+
+
   });
 
   contraptionsRouter.delete('/:id', function(req, res) {

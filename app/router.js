@@ -27,6 +27,7 @@ Router.map(function() {
       });
     });
   });
+  this.route('modify-contraption');
 });
 
 export default Router;

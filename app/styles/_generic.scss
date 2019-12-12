@@ -151,7 +151,6 @@ select{
 .buttons{
   width: 100%;
   // margin: 0 10%;
-  position: absolute;
   bottom: 0;
   left: 0;
   .inner{
@@ -163,4 +162,8 @@ select{
       float: left;
     }
   }
+}
+
+.modify_btn_cont{
+  padding: 1em;
 }
