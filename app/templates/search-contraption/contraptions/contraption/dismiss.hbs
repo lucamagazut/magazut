@@ -1,0 +1,21 @@
+<div>
+  <div class="popup">
+    <a href="#" class="close_icon" {{action 'back'}}></a>
+    <div class="popup_inner">
+      <div class="">
+        Sei sicuro di voler dismettere questo elemento?
+        (Significa che non verrà più mostato come esaurito e non verrà più richiesto l'acquisto. Quest'azione è sensata nel caso non si abbia più intenzione di riacquistare dato elemento.)
+      </div>
+
+    </div>
+
+    <div class="">
+      <button title="fuori dalle balle!" class="button" type="button" name="changeStatus5" {{action "changeStatus" 5}}>Sì, dismetti!</button>
+    </div>
+
+  </div>
+  <div class="overlay"></div>
+
+</div>
+
+{{outlet}}
