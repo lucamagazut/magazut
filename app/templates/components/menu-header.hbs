@@ -5,7 +5,11 @@
       <ul>
         <li>{{link-to "Home" "home"}}</li>
         <li>{{link-to "Cerca" "search-contraption"}}</li>
-        <li>{{link-to "In esaurimento" "runout"}}</li>
+        <li>
+          {{#link-to "search-contraption.contraptions" (query-params text="{runout}")}}
+            In esaurimento
+          {{/link-to}}
+        </li>
         <li>{{link-to "Aggiungi Utensile" "add-contraption"}}</li>
       </ul>
     </div>

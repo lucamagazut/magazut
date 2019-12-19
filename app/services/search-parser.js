@@ -178,6 +178,13 @@ export default Service.extend({
             id:[7],
             tokens:['temprato','trattato','cementato','tempra','cemento']
           }
+        ],
+        filter:[
+          {
+            name:'Filtro Runout',
+            id:['runout'],
+            tokens:['{runout}']
+          }
         ]
       },
       geometryFilter:{
