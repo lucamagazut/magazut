@@ -1,4 +1,5 @@
 import Service from '@ember/service';
+import config from '../config/environment';
 import { inject as service } from '@ember/service';
 
 export default Service.extend({
@@ -13,7 +14,7 @@ export default Service.extend({
       });
     }
     else{
-      return this.ajax.makeGet("/assets/javascripts/search_map.json", {},'GET');
+      return this.ajax.makeGet(config.rootURL +"/assets/javascripts/search_map.json", {},'GET');
     }
   },
 
