@@ -14,11 +14,15 @@ table.contraption_list_table{
   tbody{
     border-bottom: 2px solid black;
     tr{
-      cursor: pointer;
+
     }
     td{
+      cursor: pointer;
       padding:1em 0.5em;
       border-right: 1px solid black;
+      &:last-child{
+        cursor: default;
+      }
     }
     .material{
       width: 23ex;

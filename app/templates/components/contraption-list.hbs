@@ -44,10 +44,11 @@
         <td {{action "onClickContraption" ut}}>{{ut.idCode}}</td>
         <td class="available_qt" title="Quantità disponibile" {{action "onClickContraption" ut}}>{{ut.availableQt}}</td>
         <td class="order_state_color_{{ut.order_status}}">
+          {{!-- {{input type="text" name="" value=ut.order_status}} --}}
           <select name="orderStatus">
             {{#each this.order_statuses as |order_s|}}
               {{#if (if-selected order_s.id ut.order_status)}}
-              <option selected {{action "onClickOrderStatus" ut order_s.id}} value={{order_s.id}}>{{order_s.order_status_name}}</option>
+              <option selected="selected" {{action "onClickOrderStatus" ut order_s.id}} value={{order_s.id}}>{{order_s.order_status_name}}</option>
               {{else}}
               <option {{action "onClickOrderStatus" ut order_s.id}} value={{order_s.id}}>{{order_s.order_status_name}}</option>
               {{/if}}
