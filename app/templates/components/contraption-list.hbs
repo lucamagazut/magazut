@@ -17,10 +17,10 @@
   </thead>
   <tbody>
     {{#each this.list as |ut| }}
-      <tr  {{action "onClickContraption" ut}}>
-        <td class="denomination">{{ut.denomination}}</td>
-        <td>{{ut.typeName}}</td>
-        <td>
+      <tr>
+        <td class="denomination" {{action "onClickContraption" ut}}>{{ut.denomination}}</td>
+        <td {{action "onClickContraption" ut}}>{{ut.typeName}}</td>
+        <td {{action "onClickContraption" ut}}>
           <ul>
             {{#if ut.ut-rad-ins}}
               <li>Raggio inserto: {{ut.ut-rad-ins}}</li>
@@ -39,11 +39,22 @@
             {{/if}}
           </ul>
         </td>
-        <td>{{ut.machineName}}</td>
-        <td class="material">{{ut.materialName}}</td>
-        <td>{{ut.idCode}}</td>
-        <td class="available_qt" title="Quantità disponibile">{{ut.availableQt}}</td>
-        <td class="order_state_color_{{ut.order_status}}">{{ut.order_status_name}}</td>
+        <td {{action "onClickContraption" ut}}>{{ut.machineName}}</td>
+        <td class="material" {{action "onClickContraption" ut}}>{{ut.materialName}}</td>
+        <td {{action "onClickContraption" ut}}>{{ut.idCode}}</td>
+        <td class="available_qt" title="Quantità disponibile" {{action "onClickContraption" ut}}>{{ut.availableQt}}</td>
+        <td class="order_state_color_{{ut.order_status}}">
+          <select name="orderStatus">
+            {{#each this.order_statuses as |order_s|}}
+              {{#if (if-selected order_s.id ut.order_status)}}
+              <option selected {{action "onClickOrderStatus" ut order_s.id}} value={{order_s.id}}>{{order_s.order_status_name}}</option>
+              {{else}}
+              <option {{action "onClickOrderStatus" ut order_s.id}} value={{order_s.id}}>{{order_s.order_status_name}}</option>
+              {{/if}}
+            {{/each}}
+          </select>
+        </td>
+
       </tr>
     {{/each}}
   </tbody>

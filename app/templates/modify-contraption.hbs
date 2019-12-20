@@ -57,7 +57,7 @@
         {{input type="text" name="minQt" value=this.model.minQt}}
       </li>
 
-      <li>
+      {{!-- <li>
         <label for="orderStatus">Stato dell'ordine</label>
         <select name="orderStatus">
           {{#each this.order_statuses as |order_s|}}
@@ -68,11 +68,7 @@
             {{/if}}
           {{/each}}
         </select>
-      </li>
-      <li>
-        cacca : {{this.model.order_status}}
-      </li>
-
+      </li> --}}
       <li>
         <label for="purchaseRequest">Richiesta acquisto</label>
         {{input type="text" name="purchaseRequest" value=this.model.purchaseRequest}}

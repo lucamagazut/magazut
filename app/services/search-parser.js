@@ -8,7 +8,6 @@ export default Service.extend({
   getSearchMap(){
     var _t = this;
     if(this.searchMap){
-      console.log('mappa già presente');
       return new Promise(function(resolve, reject) {
         resolve(_t.searchMap);
       });
@@ -19,7 +18,6 @@ export default Service.extend({
   },
 
   init(){
-    console.log('INIT PARSER ////////////////\n\n');
     var _parser = {};
     var _t = this;
 
@@ -140,7 +138,6 @@ export default Service.extend({
 
   },
   getParser(){
-    console.log('GET PARSER ////////////////\n\n');
     return this.Parser;
   }
 
