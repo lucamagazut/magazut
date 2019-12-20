@@ -1,7 +1,6 @@
 # magazut
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+*This is NOT a collaborative project. Do whatever you want but NOT submit issues, pull request, code. Thanks.*
 
 ## Prerequisites
 

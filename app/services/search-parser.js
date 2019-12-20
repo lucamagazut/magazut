@@ -1,232 +1,29 @@
 import Service from '@ember/service';
+import { inject as service } from '@ember/service';
 
 export default Service.extend({
-  getParser(){
-    return this.Parser;
+  ajax: service('ajax'),
+  searchMap:null,
+  getSearchMap(){
+    var _t = this;
+    if(this.searchMap){
+      console.log('mappa già presente');
+      return new Promise(function(resolve, reject) {
+        resolve(_t.searchMap);
+      });
+    }
+    else{
+      return this.ajax.makeGet("/assets/javascripts/search_map.json", {},'GET');
+    }
   },
-  Parser:(function(){
 
-    let filtersMap= {
-      filters:{
-        contraption_type:[
-          {
-            name:'punte',
-            tokens:['punta'],
-            id:[4,5,6,7],
-            subtypes:[
-              {
-                name:'hss',
-                id:[4],
-                tokens:['hss','superrapido']
-              },
-              {
-                name:'widia',
-                id:[5],
-                tokens:['widia','dura']
-              },
-              {
-                name:'cuspide',
-                id:[6],
-                tokens:['cuspide','a cuspide']
-              },
-              {
-                name:'inserti',
-                id:[7],
-                tokens:['inserti', 'a inserti', 'placchette']
-              }
-            ]
-          },
-          {
-            name:'frese',
-            id:[8,9,10,11,12],
-            tokens:['fresa'],
-            subtypes:[
-              {
-                name: 'inserti',
-                id:[8],
-                tokens:['inserti','placchette'],
-                subtypes:[
-                  {
-                    name:'piko',
-                    tokens:['piko']
-                  },
-                  {
-                    name:'Per sgrossatura',
-                    tokens:['sgrossa']
-                  },
-                  {
-                    name:'Per finitura',
-                    tokens:['finitura']
-                  }
-                ]
-              },
-              {
-                name:'A candela',
-                id:[9,10],
-                tokens:['candela','cilindrica'],
-                subtypes:[
-                  {
-                    name:'Widia',
-                    id:[9],
-                    tokens:['widia','dura']
-                  },
-                  {
-                    name:'HSS',
-                    id:[10],
-                    tokens:['hss','rapido']
-                  }
-                ]
-              },
-              {
-                name:'A disco',
-                id:[11],
-                tokens:['a disco', 'piatta', 'circolare']
-              },
-              {
-                name:'Di Forma',
-                id:[12],
-                tokens:['forma']
-              }
-            ]
-          },
-          {
-            name:'Porta utensile',
-            id:[2],
-            tokens:['porta utensile','portautensile'],
-          },
-          {
-            name:'Utensile',
-            id:[13],
-            tokens:['utensile'],
-          },
-          {
-            name:'Inserto',
-            id:[3],
-            tokens:['inserto','inserti'],
-            subtypes:[
-
-            ]
-          }
-        ],
-        machine:[
-          {
-            name:'Tornio',
-            id:[6,5],
-            tokens:['tornio','torni','tornitura'],
-            subtypes:[
-              {
-                name:'Manuale',
-                id:[5],
-                tokens:['manuale']
-              },
-              {
-                name:'CNC',
-                id:[6],
-                tokens:['cnc']
-              }
-            ]
-          },
-          {
-            name:'Centro di lavoro',
-            id:[2],
-            tokens:['centro','fresatrice','alesatrice']
-          },
-          {
-            name:'Strozza',
-            id:[4],
-            tokens:['strozza','strozzatrice','chiavetta']
-          },
-          {
-            name:'Trapano',
-            id:[3],
-            tokens:['trapano','radiale','foratrice']
-          }
-        ],
-        material:[
-          {
-            name:'Acciaio',
-            id:[2],
-            tokens:['acciaio','fe','c40','c45']
-          },
-          {
-            name:'Acciaio Antiusura',
-            id:[3],
-            tokens:['hardox','antiusura']
-          },
-          {
-            name:'Acciaio Antiusura',
-            id:[3],
-            tokens:['hardox','antiusura']
-          },
-          {
-            name:'Rame',
-            id:[4],
-            tokens:['rame']
-          },
-          {
-            name:'Alluminio',
-            id:[5],
-            tokens:['alluminio','alu']
-          },
-          {
-            name:'Acciaio inox',
-            id:[6],
-            tokens:['inox','aisi']
-          },
-          {
-            name:'Acciaio Temprato',
-            id:[7],
-            tokens:['temprato','trattato','cementato','tempra','cemento']
-          }
-        ],
-        filter:[
-          {
-            name:'Filtro Runout',
-            id:['runout'],
-            tokens:['{runout}']
-          }
-        ]
-      },
-      geometryFilter:{
-        geometry_length:{
-          name:"Geometria-lunghezza",
-          tokens:[
-            "(l{1}|long{1}|lung{1}|lunghezza{1})[ ]*[0-9]+([ ]|$|mm)"
-          ]
-        },
-        geometry_radius:{
-          name:"Geometria-raggio inserto",
-          tokens:[
-            "(r{1}|raggio{1})[ ]*[0-9]+([ ]|$|mm)"
-          ]
-        },
-        geometry_degree:{
-          name:"Geometria-angolo",
-          tokens:[
-            "((gradi{1}|deg{1})[ ]*[0-9]+([ ]|$|mm)) | ([0-9]+[ ]*(gradi{1})([ ]|$|mm))"
-          ]
-        },
-        geometry_thickness:{
-          name:"Geometria-spessore",
-          tokens:[
-            "(s{1}|spess{1}|spessore{1}|spesso{1})[ ]*[0-9]+([ ]|$|mm)"
-          ]
-        },
-        geometry_diameter:{
-          name:"Geometria-diametro",
-          tokens:[
-            "(d{1}|dia{1}|diametro{1})[ ]*[0-9]+([ ]|$|mm)"
-          ]
-        }
-
-      }
-
-    };
-
-    let _parser = {};
+  init(){
+    console.log('INIT PARSER ////////////////\n\n');
+    var _parser = {};
+    var _t = this;
 
     var parseCategories = function(filterObj, textToSearch){
-      let k;
+      var k;
       var preQueryObj = {};
 
       for(k in filterObj){
@@ -235,7 +32,7 @@ export default Service.extend({
         preQueryObj[k] = parseArray(filterObj[k], textToSearch);
       }
 
-      let kk;
+      var kk;
       var queryObj = {};
 
       for(kk in preQueryObj){
@@ -253,7 +50,7 @@ export default Service.extend({
     };
 
     var parseGeometry = function(filterObj, textToSearch){
-      let k;
+      var k;
       var queryObj = {};
 
       for(k in filterObj){
@@ -292,7 +89,7 @@ export default Service.extend({
     };
 
     var checkTokenOccurences = function(tokenArray, textToSearch){
-      let i;
+      var i;
       let len = tokenArray.length;
 
       // console.log('confronta '+ JSON.stringify(tokenArray) + '   '+ textToSearch);
@@ -306,8 +103,8 @@ export default Service.extend({
     };
 
     var searchGeometryOccurrences = function(geometryFilter, normalizedText){
-      let regExReplaceText = /[^0-9]/g;
-      let result = '';
+      const regExReplaceText = /[^0-9]/g;
+      var result = '';
 
       geometryFilter.tokens.forEach(token => {
         let regEx = new RegExp(token);
@@ -327,18 +124,23 @@ export default Service.extend({
     _parser.getApiQuery = function(emberStore, searchText){
       let normalizedText = _parser.normalizedText(searchText);
 
-      var categoryObj = parseCategories(filtersMap.filters, normalizedText);
-      var geometryObj = parseGeometry(filtersMap.geometryFilter, normalizedText);
-      let apiObj = {...categoryObj, ...geometryObj};
-      // return apiObj;
-
-      console.log('@@@@@@@@@@@@@@@@@@@ò');
-      return apiObj;
+      return new Promise(function(resolve, reject){
+        _t.getSearchMap().then(function(searchMap) {
+          _t.searchMap = searchMap;
+          let categoryObj = parseCategories(searchMap.filters, normalizedText);
+          let geometryObj = parseGeometry(searchMap.geometryFilter, normalizedText);
+          let apiObj = {...categoryObj, ...geometryObj};
+          resolve(apiObj);
+        });
+      });
     };
 
+    this.Parser = _parser;
 
-    return _parser;
-
-  }())
+  },
+  getParser(){
+    console.log('GET PARSER ////////////////\n\n');
+    return this.Parser;
+  }
 
 });

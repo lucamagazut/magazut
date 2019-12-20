@@ -10,7 +10,7 @@ export default Route.extend({
   findedItems:0,
 
   searchParserService: service('search-parser'),
-  
+
   setupController: function(controller, model) {
     controller.set('findedItems',this.findedItems);
     controller.set('model', model);
@@ -31,10 +31,15 @@ export default Route.extend({
     // this.findedItems = resolvedModel.get('length');
   },
   model(){
-    // this.parseSearchText();
-    let queryApi = this.searchParserService.getParser().getApiQuery(this.store, this.searchText);
-    console.log(queryApi)
-    return this.store.query('contraption',queryApi);
+    var _t = this;
+
+    return new Promise(function(resolve, reject){
+      _t.searchParserService.getParser().getApiQuery(_t.store, _t.searchText)
+      .then(function(queryApi){
+        resolve(_t.store.query('contraption',queryApi));
+      });
+    })
+    // return this.store.query('contraption',queryApi);
   },
 
 
