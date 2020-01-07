@@ -8,6 +8,8 @@ export default Route.extend({
     }
   },
   findedItems:0,
+  orderApi: service('order-api'),
+
 
   searchParserService: service('search-parser'),
 
@@ -42,5 +44,21 @@ export default Route.extend({
     // return this.store.query('contraption',queryApi);
   },
 
+  actions:{
+    changeOrderStatus(model, order_status_id, getBack){
+      this.orderApi.send(model.get('id'), order_status_id).then((resp) => {
+        let order_status = resp.data.attributes.order_status;
+        model.set('order_status', order_status);
+        // this.transitionTo('search-contraption.contraptions');
+        if(getBack){
+          this.send('back');
+        }
+      },
+        (error) =>{
+          alert('error')
+        }
+      );
+    }
+  }
 
 });

@@ -17,6 +17,9 @@ export default Route.extend({
   validateForm(){
     return true;
   },
+  deactivate(){
+    this.currentModel.rollbackAttributes();
+  },
   actions:{
     updateContraption(){
       if(this.validateForm()){

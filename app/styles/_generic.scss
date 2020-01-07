@@ -1,10 +1,19 @@
 $body-text-color:black;
 $app_bg_color:white;
-$text-input-border-color:red;
+$text-input-border-color:black;
+$text-input-border-color-selected:lightgreen;
 $input-text-font-size:1.1em;
 $zindex-overlay:10;
 $zindex-show-contraction:20;
 $back-icon-color:black;
+$white1:#f6f6f6;
+$gray1:#687180;
+$gray2:#bbc5d5;
+$gray3:#909aa9;
+$gray4:#687180;
+$gray5:#424b59;
+
+
 
 body{
   font-size: 16px;
@@ -53,27 +62,42 @@ h2{
   padding-bottom: 1em;
 }
 
+.space_r_10{
+  padding-left: 10px;
+}
 
-button.button, input.button, .big_button, .very_big_button{
+.link{
   background-color: transparent;
   border: none;
+  font-size: 1.1em;
+  padding: 0;
   text-decoration: underline;
+  color:black;
   cursor: pointer;
+  &:visited{
+    color:black;
+  }
   &:hover{
-    text-decoration: overline;
+    color:$gray4;
   }
 }
 
-.buttons, button.button, input.button, .very_big_button{
-  font-size: 1.3em;
-}
-.big_button{
-  font-size: 1.5em;
+
+a.button, button.button, input.button{
+  font-size: 1.2em;
+  padding:0.2em 1em;
+  border-radius: 5px;
+  border: 2px solid $gray5;
+  text-decoration: none;
+  background-color: $gray2;
+  color: black;
+  text-shadow: 1px 1px $gray3;
+  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
+  &:hover{
+    background-color: $gray3;
+  }
 }
 
-.very_big_button{
-  font-size: 2em;
-}
 
 .order_state_color_0{
   background-color: red;
@@ -109,21 +133,26 @@ button.button, input.button, .big_button, .very_big_button{
   float: right;
 }
 
+.center{
+  text-align: center;
+}
+
 .half_width{
   width: 50%;
+}
+.inline_block{
+  display: inline-block;
 }
 
 .input_text{
   vertical-align: middle;
   border: none;
   padding:0.5em;
-  border-bottom: 1px solid black;
-  border-left: 1px solid black;
+  border:2px solid $text-input-border-color;
   &:focus{
-    border-bottom: 2px solid $text-input-border-color;
-    border-left: 2px solid $text-input-border-color;
+    border-color: $text-input-border-color-selected;
     &::placeholder{
-      opacity: 0.2;
+      opacity: 0.1;
     }
   }
   &::placeholder{
@@ -135,6 +164,7 @@ button.button, input.button, .big_button, .very_big_button{
 select{
   padding:0.5em;
   font-size: 1.2em;
+  border: 2px solid black;
 }
 
 .clearfix {
@@ -146,24 +176,4 @@ select{
   &:after{
     clear: both;
   }
-}
-
-.buttons{
-  width: 100%;
-  // margin: 0 10%;
-  bottom: 0;
-  left: 0;
-  .inner{
-    padding: 1em;
-    .right{
-      float: right;
-    }
-    .left{
-      float: left;
-    }
-  }
-}
-
-.modify_btn_cont{
-  padding: 1em;
 }

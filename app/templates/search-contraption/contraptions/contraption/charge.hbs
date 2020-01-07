@@ -6,6 +6,11 @@
       <ul class="list_info">
         <li><h4>{{this.model.denomination}}</h4></li>
         <li>{{this.model.idCode}}</li>
+        <li>
+          <span>Quantità corrente: {{this.model.availableQt}}</span>
+          <span> == </span>
+          <span class="order_state_color_{{this.model.order_status}}">{{this.model.order_status_name}}</span>
+        </li>
       </ul>
 
       <div class="space_t_normal">
@@ -20,7 +25,7 @@
     </div>
 
     <div class="space_b_normal">
-      <div class="space_t_half to_right">
+      <div class="center">
         <button class="button" type="button" name="confirmCharge" {{action "confirmCharge"}}>Carica</button>
       </div>
     </div>

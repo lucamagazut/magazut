@@ -25,13 +25,15 @@
 
         a{
           text-decoration: none;
+          color:#bbc5d5;
         }
         .active{
           text-decoration: underline;
-          font-size: 1.1em;
+          color: black;
         }
         a:hover{
-          text-decoration: overline;
+          opacity: 1;
+          color: black;
         }
       }
     }

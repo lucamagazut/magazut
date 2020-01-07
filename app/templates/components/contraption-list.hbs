@@ -6,11 +6,11 @@
   <thead>
     <tr>
       <th>Denominazione</th>
+      <th>Codice</th>
       <th>Tipo di utensile</th>
       <th>Geometria</th>
       <th>Macchinario</th>
       <th>Materiale di lavorazione</th>
-      <th>Codice</th>
       <th title="Quantità disponibile">Quantità</th>
       <th>Stato</th>
     </tr>
@@ -19,6 +19,7 @@
     {{#each this.list as |ut| }}
       <tr>
         <td class="denomination" {{action "onClickContraption" ut}}>{{ut.denomination}}</td>
+        <td {{action "onClickContraption" ut}}>{{ut.idCode}}</td>
         <td {{action "onClickContraption" ut}}>{{ut.typeName}}</td>
         <td {{action "onClickContraption" ut}}>
           <ul>
@@ -41,7 +42,6 @@
         </td>
         <td {{action "onClickContraption" ut}}>{{ut.machineName}}</td>
         <td class="material" {{action "onClickContraption" ut}}>{{ut.materialName}}</td>
-        <td {{action "onClickContraption" ut}}>{{ut.idCode}}</td>
         <td class="available_qt" title="Quantità disponibile" {{action "onClickContraption" ut}}>{{ut.availableQt}}</td>
         <td class="order_state_color_{{ut.order_status}}">
           {{!-- {{input type="text" name="" value=ut.order_status}} --}}

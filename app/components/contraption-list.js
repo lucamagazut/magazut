@@ -8,7 +8,7 @@ export default Component.extend({
       this.showContraption(currentModel.get('id'));
     },
     onClickOrderStatus(model, order_status_id){
-      this.changeOrderStatus(model, order_status_id);
+      this.onClickOrderStatus(model, order_status_id);
     }
   }
 });

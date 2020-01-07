@@ -17,7 +17,6 @@ Router.map(function() {
         this.route('discharge');
         this.route('charge');
         this.route('show');
-        this.route('dismiss');
       });
     });
   });

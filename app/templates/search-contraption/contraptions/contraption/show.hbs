@@ -37,38 +37,51 @@
         <li>
           <span>Quantità: {{this.model.availableQt}}</span>
           <span> == </span>
-          <span class="order_state_color_{{this.model.order_status}}">{{this.model.order_status_name}}</span>
+          <span class="inline_block order_state_text order_state_color_{{this.model.order_status}}">
+            <select name="orderStatus order_state_text order_state_color_{{this.model.order_status}}">
+              {{#each this.order_statuses as |order_s|}}
+                {{#if (if-selected order_s.id this.model.order_status)}}
+                <option selected="selected" {{action "onClickOrderStatus" this.model order_s.id}} value={{order_s.id}}>{{order_s.order_status_name}}</option>
+                {{else}}
+                <option {{action "onClickOrderStatus" this.model order_s.id}} value={{order_s.id}}>{{order_s.order_status_name}}</option>
+                {{/if}}
+              {{/each}}
+            </select>
+          </span>
         </li>
-      </ul>
-    </div>
-    <div class="buttons">
-      <div class="inner clearfix">
-        <div class="left">
-          {{#link-to 'search-contraption.contraptions.contraption.discharge'}}
-          Scarica
-          {{/link-to}}
-        </div>
-        <div class="right">
-          {{#link-to 'search-contraption.contraptions.contraption.charge'}}
-          Carica
-          {{/link-to}}
-        </div>
-      </div>
-    </div>
-    <div class="modify_btn_cont">
-      {{#link-to "modify-contraption" (query-params c_id=this.model.id)}}
-      Modifica
-      {{/link-to}}
-    </div>
-    <div class="">
-      <button class="button" type="button" name="changeStatus1" {{action "changeStatus" 3}}>Ordina</button>
-    </div>
-    <div class="">
-      {{#link-to 'search-contraption.contraptions.contraption.dismiss'}}
-      Dismetti
-      {{/link-to}}
-    </div>
 
+
+
+      </ul>
+
+      <div class="buttons_cont">
+        <ul>
+          <li>
+            {{#link-to 'search-contraption.contraptions.contraption.discharge' class="button"}}
+            Scarica
+            {{/link-to}}
+          </li>
+          <li>
+            {{#link-to 'search-contraption.contraptions.contraption.charge' class="button"}}
+            Carica
+            {{/link-to}}
+          </li>
+        </ul>
+      </div>
+      <div class="option_buttons_cont">
+        <ul>
+          <li>
+            {{#link-to "modify-contraption" (query-params c_id=this.model.id) class="link"}}
+            Modifica
+            {{/link-to}}
+          </li>
+          {{!-- <li>
+            <button class="link" type="button" name="changeStatus1" {{action "changeStatus" 3}}>Ordina</button>
+          </li> --}}
+        </ul>
+      </div>
+
+    </div>
   </div>
   <div class="overlay"></div>
 

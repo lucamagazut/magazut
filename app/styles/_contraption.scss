@@ -1,7 +1,23 @@
 #show_contraption_main{
 
-}
+  .buttons_cont{
+    margin-top: 2em;
+    ul{
+      text-align: right;
+    }
+    li{
+      display: inline-block;
+    }
 
-#main_charge_contraption{
+  }
+  .option_buttons_cont{
+    margin-top: 1.5em;
+    li{
+      margin-top: 5px;
+    }
+  }
 
+  .order_state_text{
+    padding: 0.2em 0.5em;
+  }
 }
