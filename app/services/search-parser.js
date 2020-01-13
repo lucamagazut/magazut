@@ -13,7 +13,7 @@ export default Service.extend({
       });
     }
     else{
-      return this.ajax.makeGet(config.rootURL +"/assets/javascripts/search_map.json", {},'GET');
+      return this.ajax.makeGet("assets/javascripts/search_map.json", {},'GET');
     }
   },
 
