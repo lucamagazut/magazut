@@ -1,3 +1,21 @@
 <MenuHeader></MenuHeader>
 
+<table class="unloading_histores">
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Aggeggio</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.model as |history| }}
+      <tr>
+        <th>{{history.transaction_time}}</th>
+        <td>{{history.contraption_denomination}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
 {{outlet}}
