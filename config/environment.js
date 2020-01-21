@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'magazut',
     environment,
     rootURL: '/magazut',
-    apiHost: 'http://localhost:3000',
+    apiHost: environment === 'development' ? 'http://localhost:3010':'',
     apiNamespace: 'api',
     locationType: 'hash',
     EmberENV: {

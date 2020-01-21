@@ -35,6 +35,9 @@
           opacity: 1;
           color: black;
         }
+        &:last-child{
+          padding-right: 0;
+        }
       }
     }
   }
