@@ -102,7 +102,7 @@ export default Service.extend({
     };
 
     var searchGeometryOccurrences = function(geometryFilter, normalizedText){
-      const regExReplaceText = /[^0-9]/g;
+      const regExReplaceText = /[^0-9,.]/g;
       var result = '';
 
       geometryFilter.tokens.forEach(token => {

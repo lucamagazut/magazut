@@ -45,9 +45,9 @@ export default DS.Model.extend({
     }
     return '';
   }),
-  'ut-long': DS.attr(),
-  'ut-thick': DS.attr(),
-  'ut-rad-ins': DS.attr(),
-  'ut-dia': DS.attr(),
-  'ut-deg': DS.attr()
+  'ut-long': DS.attr('number'),
+  'ut-thick': DS.attr('number'),
+  'ut-rad-ins': DS.attr('number'),
+  'ut-dia': DS.attr('number'),
+  'ut-deg': DS.attr('number')
 });

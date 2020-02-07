@@ -186,31 +186,31 @@
     "geometry_length":{
       "name":"Geometria-lunghezza",
       "tokens":[
-        "(l{1}|long{1}|lung{1}|lunghezza{1})[ ]*[0-9]+([ ]|$|mm)"
+        "(l{1}|long{1}|lung{1}|lunghezza{1})[ ]*[0-9,.]+([ ]|$|mm)"
       ]
     },
     "geometry_radius":{
       "name":"Geometria-raggio inserto",
       "tokens":[
-        "(r{1}|raggio{1})[ ]*[0-9]+([ ]|$|mm)"
+        "(r{1}|raggio{1})[ ]*[0-9,.]+([ ]|$|mm)"
       ]
     },
     "geometry_degree":{
       "name":"Geometria-angolo",
       "tokens":[
-        "((gradi{1}|deg{1})[ ]*[0-9]+([ ]|$|mm)) | ([0-9]+[ ]*(gradi{1})([ ]|$|mm))"
+        "((gradi{1}|deg{1})[ ]*[0-9,.]+([ ]|$|mm)) | ([0-9,.]+[ ]*(gradi{1})([ ]|$|mm))"
       ]
     },
     "geometry_thickness":{
       "name":"Geometria-spessore",
       "tokens":[
-        "(s{1}|spess{1}|spessore{1}|spesso{1})[ ]*[0-9]+([ ]|$|mm)"
+        "(s{1}|sp{1}|spess{1}|spessore{1}|spesso{1})[ ]*[0-9,.]+([ ]|$|mm)"
       ]
     },
     "geometry_diameter":{
       "name":"Geometria-diametro",
       "tokens":[
-        "(d{1}|dia{1}|diametro{1})[ ]*[0-9]+([ ]|$|mm)"
+        "(d{1}|dia{1}|diametro{1})[ ]*[0-9,.]+([ ]|$|mm)"
       ]
     }
   }
