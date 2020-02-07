@@ -115,6 +115,18 @@ export default Service.extend({
       return result;
     };
 
+    var parseId = function(idFilter, normalizedText){
+      const regExReplaceText = /[^0-9]/g;
+      let regEx = new RegExp(idFilter.token);
+      let searchPos = normalizedText.search(regEx);
+      var result = '';
+      if(searchPos!==-1){
+        result = normalizedText.match(regEx)[0].replace(regExReplaceText,'');
+      }
+      return result;
+    };
+
+
     _parser.normalizedText = function(testToNormalize){
       return testToNormalize.toLowerCase();
     };
@@ -126,9 +138,19 @@ export default Service.extend({
       return new Promise(function(resolve, reject){
         _t.getSearchMap().then(function(searchMap) {
           _t.searchMap = searchMap;
-          let categoryObj = parseCategories(searchMap.filters, normalizedText);
-          let geometryObj = parseGeometry(searchMap.geometryFilter, normalizedText);
-          let apiObj = {...categoryObj, ...geometryObj};
+          var apiObj;
+
+          let idFilter = parseId(searchMap.c_id, normalizedText);
+
+          if(idFilter !== ''){
+            apiObj = {c_id:idFilter};
+          }
+          else{
+            let categoryObj = parseCategories(searchMap.filters, normalizedText);
+            let geometryObj = parseGeometry(searchMap.geometryFilter, normalizedText);
+            apiObj = {...categoryObj, ...geometryObj};
+          }
+
           resolve(apiObj);
         });
       });

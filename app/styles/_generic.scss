@@ -16,7 +16,7 @@ $gray5:#424b59;
 
 
 body{
-  font-size: 20px;
+  font-size: 14px;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   color: $body-text-color;
   padding: 0em 2em 3em;
@@ -82,6 +82,9 @@ h2{
   }
 }
 
+.clickable{
+  cursor: pointer;
+}
 
 a.button, button.button, input.button{
   font-size: 1.2em;

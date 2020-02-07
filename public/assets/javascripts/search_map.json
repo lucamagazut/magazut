@@ -1,4 +1,9 @@
 {
+  "c_id":{
+    "name":"contraption_id filter",
+    "token":"{c_id=[0-9]+",
+    "id":"c_id"
+  },
   "filters":{
     "contraption_type":[
       {

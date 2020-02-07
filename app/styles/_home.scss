@@ -1,4 +1,35 @@
 
 .unloading_histores{
-  display: none;
+  display: table;
+  margin-top: 30px;
+  margin-left: 2px;
+  thead{
+    border-bottom: 1px solid black;
+  }
+  th{
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 0 10px 5px 10px;
+    box-sizing: border-box;
+  }
+  tbody{
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    tr{
+      border-bottom: 1px solid black;
+    }
+    td{
+      // cursor: pointer;
+      padding:10px 10px;
+      border-right: 1px solid lightgrey;
+      // &:last-child{
+      //   cursor: default;
+      // }
+    }
+  }
+  tfoot{
+    .history_pagination{
+      padding-top: 10px;
+    }
+  }
 }
