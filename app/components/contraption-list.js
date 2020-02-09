@@ -9,6 +9,12 @@ export default Component.extend({
     },
     onClickOrderStatus(model, order_status_id){
       this.onClickOrderStatus(model, order_status_id);
+    },
+    onClickContraptionsNext(){
+      this.onClickContraptionsNext_b1();
+    },
+    onClickContraptionsPrev(){
+      this.onClickContraptionsPrev_b1();
     }
   }
 });

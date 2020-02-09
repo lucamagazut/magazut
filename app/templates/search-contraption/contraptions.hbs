@@ -1,6 +1,15 @@
 
 <div class="contraptions_main_cont">
-  <ContraptionList @onClickOrderStatus={{action "onClickOrderStatus"}}  @order_statuses={{order_statuses}} @showContraption={{action "showContraption"}} @list={{this.model}}/>
+  <ContraptionList
+    @currentPage={{this.currentPage}}
+    @totalPages={{this.totalPages}}
+    @onClickContraptionsNext_b1={{action "onClickContraptionsNext_b1"}}
+    @onClickContraptionsPrev_b1={{action "onClickContraptionsPrev_b1"}}
+    @onClickOrderStatus={{action "onClickOrderStatus"}}
+    @order_statuses={{order_statuses}}
+    @showContraption={{action "showContraption"}}
+    @list={{this.model}}
+  />
 </div>
 
 

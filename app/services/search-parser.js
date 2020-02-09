@@ -132,7 +132,7 @@ export default Service.extend({
     };
 
 
-    _parser.getApiQuery = function(emberStore, searchText){
+    _parser.getApiQuery = function(emberStore, searchText, paginationObj){
       let normalizedText = _parser.normalizedText(searchText);
 
       return new Promise(function(resolve, reject){
@@ -148,7 +148,7 @@ export default Service.extend({
           else{
             let categoryObj = parseCategories(searchMap.filters, normalizedText);
             let geometryObj = parseGeometry(searchMap.geometryFilter, normalizedText);
-            apiObj = {...categoryObj, ...geometryObj};
+            apiObj = {...categoryObj, ...geometryObj, ...paginationObj};
           }
 
           resolve(apiObj);

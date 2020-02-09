@@ -45,6 +45,8 @@ export default DS.Model.extend({
     }
     return '';
   }),
+  total_contraptions_found: DS.attr('number',{ defaultValue: 0 }),
+  pagination: DS.attr('number',{ defaultValue: 0 }),
   'ut-long': DS.attr('number'),
   'ut-thick': DS.attr('number'),
   'ut-rad-ins': DS.attr('number'),

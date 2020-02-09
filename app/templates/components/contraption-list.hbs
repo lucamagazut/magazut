@@ -1,5 +1,10 @@
 <div class="result_text">
-  Trovati <strong>{{this.list.length}}</strong> aggeggi
+  {{!-- Trovati <strong>{{this.list.length}}</strong> aggeggi --}}
+  <strong>Pagina {{currentPage}} di {{totalPages}}</strong>
+  <button class="link" type="button" {{action "onClickContraptionsPrev"}}>prev</button>
+  <span> / </span>
+  <button class="link" type="button" {{action "onClickContraptionsNext"}}>next</button>
+  <span> - Mostrati {{this.list.length}} aggeggi</span>
 </div>
 <table class="contraption_list_table">
   {{!-- <caption>Lista</caption> --}}
@@ -59,6 +64,18 @@
       </tr>
     {{/each}}
   </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="8">
+          <div class="to_right space_t_2">
+            <strong>Pagina {{currentPage}} di {{totalPages}}</strong>
+            <button class="link" type="button" {{action "onClickContraptionsPrev"}}>prev</button>
+            <span> / </span>
+            <button class="link" type="button" {{action "onClickContraptionsNext"}}>next</button>
+          </div>
+      </td>
+    </tr>
+  </tfoot>
 </table>
 
 {{yield}}

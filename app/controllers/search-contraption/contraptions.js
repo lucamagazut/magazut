@@ -14,6 +14,12 @@ export default Controller.extend({
     },
     onClickOrderStatus(model, order_status_id){
       this.send('changeOrderStatus', model, order_status_id);
+    },
+    onClickContraptionsPrev_b1(){
+      this.send('onClickContraptionsPrev_b2', this.model.length);
+    },
+    onClickContraptionsNext_b1(){
+      this.send('onClickContraptionsNext_b2', this.model.length);
     }
   }
 });
