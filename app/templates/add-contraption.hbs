@@ -2,8 +2,14 @@
 
 <div id="add_contraption_main">
   <h2>Crea nuovo aggeggio</h2>
-  <div class="form_cont">
-    <ContraptionForm @model={{this.model}} @contraptionTypes={{this.contraption_types}} @machines={{this.machines}} @materials={{this.materials}} @createContraption={{action "createContraption"}}></ContraptionForm>
+  <div class="clearfix">
+    <div class="form_cont">
+      <ContraptionForm @model={{this.model}} @contraptionTypes={{this.contraption_types}} @machines={{this.machines}} @materials={{this.materials}} @createContraption={{action "createContraption"}}></ContraptionForm>
+    </div>
+    <div class="legenda_cont">
+      <Legenda/>
+    </div>
+    
   </div>
-  {{outlet}}
 </div>
+{{outlet}}

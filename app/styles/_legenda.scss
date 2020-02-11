@@ -1,0 +1,25 @@
+.legenda_cont{
+  padding-top: 50px;
+  float: right;
+  width: 30%;
+  tr{
+    line-height: 1.2em;
+  }
+  .code{
+    padding-top: 15px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+  .description{
+    padding-left: 10px;
+  }
+  h3{
+    font-weight: bold;
+    font-size: 1.3em;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  li{
+    padding-top: 10px;
+  }
+}

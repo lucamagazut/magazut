@@ -1,72 +1,75 @@
 <form class="" action="" method="post">
-  <ul>
-    <li>
-      <label for="denomination">Descrizione</label>
-      {{input type="text" id="denomination" class="input_text" name="denomination" value=this.model.denomination}}
-    </li>
-    <li>
-      <label for="idCode">Codice identificativo</label>
-      {{input type="text" name="idCode" id="idCode" value=this.model.idCode class="input_text"}}
-    </li>
-    <li>
-      <label for="material">Materiale</label>
-      <select class="" name="material" id="material">
-        {{#each this.materials as |material|}}
-        <option onclick={{action (mut this.model.material) material.id}} value={{material.id}}>{{material.name}}</option>
-        {{/each}}
-      </select>
-    </li>
-    <li>
-      <label for="machine">Macchina</label>
-      <select class="machine" name="machine">
-        {{#each this.machines as |machine|}}
-        <option onclick={{action (mut this.model.machine) machine.id}} value={{machine.id}}>{{machine.name}}</option>
-        {{/each}}
-      </select>
-    </li>
-    <li>
-      <label for="contraptionTypesSelect">Tipologia</label>
-      <select class="contTypes" name="contTypes">
-        {{#each this.contraptionTypes as |contraption_type|}}
-        <option onclick={{action (mut this.model.type) contraption_type.id}} value={{contraption_type.id}}>{{contraption_type.name}}</option>
-        {{/each}}
-      </select>
-    </li>
-    <li>
-      <label for="availableQt">Quantità</label>
-      {{input type="text" name="availableQt" value=this.model.availableQt class="input_text"}}
-    </li>
-    <li>
-      <label for="minQt">Quantità minima</label>
-      {{input type="text" name="minQt" value=this.model.minQt class="input_text"}}
-    </li>
-    <li>
-      <label for="purchaseRequest">Richiesta acquisto</label>
-      {{input type="text" name="purchaseRequest" value=this.model.purchaseRequest class="input_text"}}
-    </li>
-  </ul>
+  <fieldset>
+    <legend>Info generiche</legend>
+    <ul>
+      <li>
+        <label for="denomination">Descrizione</label>
+        {{input type="text" id="denomination" class="input_text" name="denomination" value=this.model.denomination}}
+      </li>
+      <li>
+        <label for="idCode">Codice identificativo</label>
+        {{input type="text" name="idCode" id="idCode" value=this.model.idCode class="input_text"}}
+      </li>
+      <li>
+        <label for="material">Materiale</label>
+        <select class="" name="material" id="material">
+          {{#each this.materials as |material|}}
+          <option onclick={{action (mut this.model.material) material.id}} value={{material.id}}>{{material.name}}</option>
+          {{/each}}
+        </select>
+      </li>
+      <li>
+        <label for="machine">Macchina</label>
+        <select class="machine" name="machine">
+          {{#each this.machines as |machine|}}
+          <option onclick={{action (mut this.model.machine) machine.id}} value={{machine.id}}>{{machine.name}}</option>
+          {{/each}}
+        </select>
+      </li>
+      <li>
+        <label for="contraptionTypesSelect">Tipologia</label>
+        <select class="contTypes" name="contTypes">
+          {{#each this.contraptionTypes as |contraption_type|}}
+          <option onclick={{action (mut this.model.type) contraption_type.id}} value={{contraption_type.id}}>{{contraption_type.name}}</option>
+          {{/each}}
+        </select>
+      </li>
+      <li>
+        <label for="availableQt">Quantità</label>
+        {{input type="number" name="availableQt" value=this.model.availableQt class="input_text"}}
+      </li>
+      <li>
+        <label for="minQt">Quantità minima</label>
+        {{input type="number" name="minQt" value=this.model.minQt class="input_text"}}
+      </li>
+      <li>
+        <label for="purchaseRequest">Richiesta acquisto</label>
+        {{input type="text" name="purchaseRequest" value=this.model.purchaseRequest class="input_text"}}
+      </li>
+    </ul>
+  </fieldset>
   <fieldset>
     <legend>Geometria</legend>
     <ul>
       <li>
         <label for="ut-long">Lunghezza</label>
-        {{input type="text" name="ut-long" value=this.model.ut-long class="input_text"}}
+        {{input type="number" step=".01" name="ut-long" value=this.model.ut-long class="input_text"}}
       </li>
       <li>
         <label for="ut-thick">Spessore</label>
-        {{input type="text" name="ut-thick" value=this.model.ut-thick class="input_text"}}
+        {{input type="number" step=".01" name="ut-thick" value=this.model.ut-thick class="input_text"}}
       </li>
       <li>
         <label for="ut-rad-ins">Raggio</label>
-        {{input type="text" name="ut-rad-ins" value=this.model.ut-rad-ins class="input_text"}}
+        {{input type="number" step=".01" name="ut-rad-ins" value=this.model.ut-rad-ins class="input_text"}}
       </li>
       <li>
         <label for="ut-dia">Diametro</label>
-        {{input type="text" name="ut-dia" value=this.model.ut-dia class="input_text"}}
+        {{input type="number" step=".01" name="ut-dia" value=this.model.ut-dia class="input_text"}}
       </li>
       <li>
         <label for="ut-deg">Angolo</label>
-        {{input type="text" name="ut-deg" value=this.model.ut-deg class="input_text"}}
+        {{input type="number" step=".01" name="ut-deg" value=this.model.ut-deg class="input_text"}}
       </li>
     </ul>
   </fieldset>
