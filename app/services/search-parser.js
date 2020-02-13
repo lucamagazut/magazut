@@ -126,6 +126,16 @@ export default Service.extend({
       return result;
     };
 
+    var parseIdCode = function(code_idObj, searchText){
+      var check = false;
+      code_idObj.tokens.forEach((item, i) => {
+        if(searchText.includes(item)){
+          check = true;
+        }
+      });
+      return check;
+    };
+
 
     _parser.normalizedText = function(testToNormalize){
       return testToNormalize.toLowerCase();
@@ -141,14 +151,21 @@ export default Service.extend({
           var apiObj;
 
           let idFilter = parseId(searchMap.c_id, normalizedText);
-
           if(idFilter !== ''){
             apiObj = {c_id:idFilter};
           }
           else{
-            let categoryObj = parseCategories(searchMap.filters, normalizedText);
-            let geometryObj = parseGeometry(searchMap.geometryFilter, normalizedText);
-            apiObj = {...categoryObj, ...geometryObj, ...paginationObj};
+
+            if(parseIdCode(searchMap['id-code'], searchText)){
+              console.log('entraççççççççççççççççççççççççççççò');
+              apiObj = {"id-code":searchText};
+            }
+            else{
+              let categoryObj = parseCategories(searchMap.filters, normalizedText);
+              let geometryObj = parseGeometry(searchMap.geometryFilter, normalizedText);
+              apiObj = {...categoryObj, ...geometryObj, ...paginationObj};
+            }
+
           }
 
           resolve(apiObj);
