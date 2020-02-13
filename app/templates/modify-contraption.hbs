@@ -14,7 +14,9 @@
       </li>
       <li>
         <label for="material">Materiale</label>
-        <select class="" name="material" id="material">
+        <FSelect @list={{this.materials}} @value={{this.model.material}}/>
+
+        {{!-- <select class="" name="material" id="material">
           {{#each this.materials as |material|}}
             {{#if (if-selected material.id this.model.material)}}
             <option selected onclick={{action (mut this.model.material) material.id}} value={{material.id}}>{{material.name}}</option>
@@ -22,7 +24,7 @@
             <option onclick={{action (mut this.model.material) material.id}} value={{material.id}}>{{material.name}}</option>
             {{/if}}
           {{/each}}
-        </select>
+        </select> --}}
       </li>
       <li>
         <label for="machine">Macchina</label>

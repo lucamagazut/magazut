@@ -12,27 +12,15 @@
       </li>
       <li>
         <label for="material">Materiale</label>
-        <select class="" name="material" id="material">
-          {{#each this.materials as |material|}}
-          <option onclick={{action (mut this.model.material) material.id}} value={{material.id}}>{{material.name}}</option>
-          {{/each}}
-        </select>
+        <FSelect @list={{this.materials}} @value={{this.model.material}}/>
       </li>
       <li>
         <label for="machine">Macchina</label>
-        <select class="machine" name="machine">
-          {{#each this.machines as |machine|}}
-          <option onclick={{action (mut this.model.machine) machine.id}} value={{machine.id}}>{{machine.name}}</option>
-          {{/each}}
-        </select>
+        <FSelect @list={{this.machines}} @value={{this.model.machine}}/>
       </li>
       <li>
         <label for="contraptionTypesSelect">Tipologia</label>
-        <select class="contTypes" name="contTypes">
-          {{#each this.contraptionTypes as |contraption_type|}}
-          <option onclick={{action (mut this.model.type) contraption_type.id}} value={{contraption_type.id}}>{{contraption_type.name}}</option>
-          {{/each}}
-        </select>
+        <FSelect @list={{this.contraptionTypes}} @value={{this.model.type}}/>
       </li>
       <li>
         <label for="availableQt">Quantità</label>

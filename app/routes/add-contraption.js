@@ -23,6 +23,8 @@ export default Route.extend({
 
   actions:{
     refreshAfterSuccess(){
+      // alert(this.get('routeName'))
+      // window.location.reload(true);
       this.refresh();
     }
   },
