@@ -4,12 +4,16 @@
   <h2>Crea nuovo aggeggio</h2>
   <div class="clearfix">
     <div class="form_cont">
-      <ContraptionForm @model={{this.model}} @contraptionTypes={{this.contraption_types}} @machines={{this.machines}} @materials={{this.materials}} @createContraption={{action "createContraption"}}></ContraptionForm>
+      <ContraptionForm @model={{this.model}} @contraptionTypes={{this.contraption_types}} @machines={{this.machines}} @materials={{this.materials}}>
+        <div class="space_t_normal center">
+          <input class="button" type="button" name="createContraption" value="Crea" {{action "createContraption" this.model}}>
+        </div>
+      </ContraptionForm>
     </div>
     <div class="legenda_cont">
       <Legenda/>
     </div>
-    
+
   </div>
 </div>
 {{outlet}}
