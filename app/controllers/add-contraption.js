@@ -22,8 +22,9 @@ export default Controller.extend({
     createContraption(){
       if(this.validateForm()){
         this.model.save().then((data)=>{
-          alert('salvato');
+          // alert('salvato');
           this.send('refreshAfterSuccess');
+          this.send('showSuccessAlert')
         })
         .catch(error=>{
           alert('Qualcosa è andato storto. Controlla i dati e riprova');

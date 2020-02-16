@@ -20,8 +20,9 @@ export default Route.extend({
           let order_status = resp.data[0].attributes.order_status;
           this.currentModel.set('availableQt', availableQt);
           this.currentModel.set('order_status', order_status);
-          alert('ok');
+          // alert('ok');
           this.transitionTo('search-contraption.contraptions');
+          this.send('showSuccessAlert')
           // this.transitionTo('search-contraption');
         },
           (error) =>{

@@ -24,8 +24,9 @@ export default Route.extend({
     updateContraption(){
       if(this.validateForm()){
         this.controller.get('model').save().then((data)=>{
-          alert('salvato');
+          // alert('salvato');
           this.transitionTo('search-contraption');
+          this.send('showSuccessAlert')
           // this.send('refreshAfterSuccess');
         })
         .catch(error=>{
