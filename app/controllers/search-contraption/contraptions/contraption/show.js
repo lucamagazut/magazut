@@ -6,8 +6,10 @@ export default Controller.extend({
     return this.store.peekAll('order_status');
   }),
   actions:{
-    onClickOrderStatus(model, order_status_id){
-      this.send('changeOrderStatus', model, order_status_id);
+    onClickOrderStatus(event){
+      let contraptionId = event.target.attributes['data-contraption-id'].value;
+      let orderStatusId = event.target.value;
+      this.send('changeOrderStatus', contraptionId, orderStatusId);
     }
   }
 });

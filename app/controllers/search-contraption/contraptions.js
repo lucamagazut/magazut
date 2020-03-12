@@ -12,8 +12,10 @@ export default Controller.extend({
     showContraption(currentModelId){
       this.transitionToRoute('search-contraption.contraptions.contraption.show',currentModelId);
     },
-    onClickOrderStatus(model, order_status_id){
-      this.send('changeOrderStatus', model, order_status_id);
+    onClickOrderStatus(event){
+      let contraptionId = event.target.attributes['data-contraption-id'].value;
+      let orderStatusId = event.target.value;
+      this.send('changeOrderStatus', contraptionId, orderStatusId);
     },
     onClickContraptionsPrev_b1(){
       this.send('onClickContraptionsPrev_b2', this.model.length);

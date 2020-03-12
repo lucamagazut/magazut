@@ -28,6 +28,10 @@
         </select>
         <label for="operators" class="space_r_10">Operatore ricevente</label>
       </div>
+      <div class="space_t_normal">
+        <label for="is_borrowed">Da ritornare?{{this.isBorrowed}}</label>
+        {{input id="is_borrowed" type="checkbox" name="is_borrowed" checked=this.isBorrowed}}
+      </div>
 
     </div>
     <div class="space_b_normal">

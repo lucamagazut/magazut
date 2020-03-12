@@ -36,6 +36,7 @@ export default DS.Model.extend({
   idCode: DS.attr(),
   "availableQt": DS.attr('number'),
   "minQt": DS.attr('number'),
+  borrowed_qt: DS.attr('number'),
   order_status:DS.attr('number'),
   order_status_name:computed('order_status',function(){
     let store = this.get('store');

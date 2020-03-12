@@ -10,6 +10,7 @@ export default Route.extend({
       machine:1,
       idCode:'',
       availableQt:0,
+      borrowed_qt:0,
       minQt:0,
       order_status:0,
       'ut-long': 0,

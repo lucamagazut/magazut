@@ -81,10 +81,13 @@ export default Route.extend({
   },
 
   actions:{
-    changeOrderStatus(model, order_status_id, getBack){
-      this.orderApi.send(model.get('id'), order_status_id).then((resp) => {
+    changeOrderStatus(modelId, orderStatusId, getBack){
+      var store = this.store;
+      console.log(modelId);
+      console.log(orderStatusId);
+      this.orderApi.send(modelId, orderStatusId).then((resp) => {
         let order_status = resp.data.attributes.order_status;
-        model.set('order_status', order_status);
+        store.peekRecord('contraption', modelId).set('order_status',order_status);
         // this.transitionTo('search-contraption.contraptions');
         if(getBack){
           this.send('back');

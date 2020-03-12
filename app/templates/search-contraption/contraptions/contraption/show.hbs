@@ -35,23 +35,16 @@
           <span>{{this.model.materialName}}</span>
         </li>
         <li>
-          <span>Quantità: {{this.model.availableQt}}</span>
-          <span> == </span>
-          <span class="inline_block order_state_text order_state_color_{{this.model.order_status}}">
-            <select name="orderStatus order_state_text order_state_color_{{this.model.order_status}}">
-              {{#each this.order_statuses as |order_s|}}
-                {{#if (if-selected order_s.id this.model.order_status)}}
-                <option selected="selected" {{action "onClickOrderStatus" this.model order_s.id}} value={{order_s.id}}>{{order_s.order_status_name}}</option>
-                {{else}}
-                <option {{action "onClickOrderStatus" this.model order_s.id}} value={{order_s.id}}>{{order_s.order_status_name}}</option>
-                {{/if}}
-              {{/each}}
-            </select>
-          </span>
+          <div>Quantità disponibile in magazzino:<strong class="available_qt_text order_state_color_{{this.model.order_status}}">{{this.model.availableQt}}</strong></div>
+          <div class="order_state_text_cont">
+            <FSelect data-contraption-id="{{this.model.id}}" @change={{action "onClickOrderStatus"}} @list={{this.order_statuses}} @value={{this.model.order_status}}/>
+          </div>
+          <div>
+            {{#if this.model.borrowed_qt}}
+              Di cui prestate o in affilatura: <strong>{{this.model.borrowed_qt}}</strong>
+            {{/if}}
+          </div>
         </li>
-
-
-
       </ul>
 
       <div class="buttons_cont">
