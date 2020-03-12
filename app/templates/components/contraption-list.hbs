@@ -47,20 +47,10 @@
         </td>
         <td {{action "onClickContraption" ut}}>{{ut.machineName}}</td>
         <td class="material" {{action "onClickContraption" ut}}>{{ut.materialName}}</td>
-        <td class="available_qt" title="Quantità disponibile" {{action "onClickContraption" ut}}>{{ut.availableQt}}</td>
+        <td class="available_qt" {{action "onClickContraption" ut}}><span title="Quantità disponibile">{{ut.availableQt}}</span><span title="Imprestate/affilatura"> / ({{ut.borrowed_qt}})</span></td>
         <td class="order_state_color_{{ut.order_status}}">
-          {{!-- {{input type="text" name="" value=ut.order_status}} --}}
-          <select name="orderStatus">
-            {{#each this.order_statuses as |order_s|}}
-              {{#if (if-selected order_s.id ut.order_status)}}
-              <option selected="selected" {{action "onClickOrderStatus" ut order_s.id}} value={{order_s.id}}>{{order_s.order_status_name}}</option>
-              {{else}}
-              <option {{action "onClickOrderStatus" ut order_s.id}} value={{order_s.id}}>{{order_s.order_status_name}}</option>
-              {{/if}}
-            {{/each}}
-          </select>
+          <FSelect data-contraption-id="{{ut.id}}" @change={{onClickOrderStatus}} @list={{this.order_statuses}} @value={{ut.order_status}}/>
         </td>
-
       </tr>
     {{/each}}
   </tbody>

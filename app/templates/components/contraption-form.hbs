@@ -23,8 +23,12 @@
         <FSelect @list={{this.contraptionTypes}} @value={{this.model.type}}/>
       </li>
       <li>
-        <label for="availableQt">Quantità</label>
+        <label for="availableQt">Quantità diponibile</label>
         {{input type="number" name="availableQt" value=this.model.availableQt class="input_text"}}
+      </li>
+      <li>
+        <label for="availableQt">Quantità prestata</label>
+        {{input type="number" name="borrowedQt" value=this.model.borrowed_qt class="input_text"}}
       </li>
       <li>
         <label for="minQt">Quantità minima</label>
