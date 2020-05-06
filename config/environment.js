@@ -28,6 +28,9 @@ module.exports = function(environment) {
   let apiHostName = ENV.apiHost + '/' + ENV.apiNamespace;
   ENV.apiHostName = apiHostName;
 
+
+  console.log('environment '+ environment);
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
