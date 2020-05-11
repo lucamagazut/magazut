@@ -1,5 +1,9 @@
 <MenuHeader></MenuHeader>
 
+
+<div class="">
+  pagine {{this.history_page}}
+</div>
 <table class="unloading_histores">
   <thead>
     <tr>
@@ -12,13 +16,15 @@
   </thead>
   <tbody>
     {{#each this.history_list as |history| }}
-      <tr class="clickable" {{action "onClickHistory" history.contraption_id}}>
-        <td title="Data della transizione">{{history.transaction_time}}</td>
-        <td title="Nomenclatura Aggeggio">{{history.contraption_denomination}}</td>
-        <td title="Codice">{{history.contraption_id_code}}</td>
-        <td title="Utente ricevente">{{history.employee_name}} {{history.employee_second_name}}</td>
-        <td title="Quantità ricevuta">{{history.involved_quantity}}</td>
-      </tr>
+    {{#if history.transaction_time}}
+    <tr class="clickable" {{action "onClickHistory" history.contraption_id}}>
+      <td title="Data della transizione">{{history.transaction_time}}</td>
+      <td title="Nomenclatura Aggeggio">{{history.contraption_denomination}}</td>
+      <td title="Codice">{{history.contraption_id_code}}</td>
+      <td title="Utente ricevente">{{history.employee_name}} {{history.employee_second_name}}</td>
+      <td title="Quantità ricevuta">{{history.involved_quantity}}</td>
+    </tr>
+    {{/if}}
     {{/each}}
   </tbody>
   <tfoot>
