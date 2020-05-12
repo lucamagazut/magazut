@@ -155,20 +155,25 @@ export default Service.extend({
             apiObj = {c_id:idFilter};
           }
           else{
-
             if(parseIdCode(searchMap['id-code'], searchText)){
-              console.log('entraççççççççççççççççççççççççççççò');
               apiObj = {"id-code":searchText};
             }
             else{
               let categoryObj = parseCategories(searchMap.filters, normalizedText);
-              let geometryObj = parseGeometry(searchMap.geometryFilter, normalizedText);
-              apiObj = {...categoryObj, ...geometryObj, ...paginationObj};
+
+
+              console.log(categoryObj);
+              if(categoryObj.contraption_type || categoryObj.filter){
+                let geometryObj = parseGeometry(searchMap.geometryFilter, normalizedText);
+                apiObj = {...categoryObj, ...geometryObj, ...paginationObj};
+              }else{
+                apiObj = false;
+              }
             }
 
           }
 
-          resolve(apiObj);
+          return resolve(apiObj);
         });
       });
     };

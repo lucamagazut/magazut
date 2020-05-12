@@ -13,4 +13,11 @@
       </div>
     </div>
   {{/if}}
+  {{#if isErrorShowed}}
+    <div id="errorAlert">
+      <div class="inner">
+        {{errorText}}
+      </div>
+    </div>
+  {{/if}}
 </div>

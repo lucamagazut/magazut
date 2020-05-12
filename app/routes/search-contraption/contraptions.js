@@ -71,12 +71,25 @@ export default Route.extend({
 
     var _t = this;
     let pagination = this.get('pagination');
+
     return new Promise(function(resolve, reject){
-      _t.searchParserService.getParser().getApiQuery(_t.store, _t.searchText, _t.getPaginationObj())
+      let getQueryPromise = _t.searchParserService.getParser().getApiQuery(_t.store, _t.searchText, _t.getPaginationObj());
+
+      getQueryPromise
       .then(function(queryApi){
-        resolve(_t.store.query('contraption',queryApi));
-      });
+
+        console.log('query api ');
+        console.log(queryApi);
+        if(queryApi === false){
+          reject(new Error('Ricerca non valida'));
+        }else{
+          resolve(_t.store.query('contraption',queryApi));
+        }
+        return this;
+
+      })
     })
+
     // return this.store.query('contraption',queryApi);
   },
 
@@ -109,6 +122,9 @@ export default Route.extend({
         this.incrementProperty('pagination');
         this.refresh();
       }
+    },
+    error(error){
+      this.send('showError', error);
     }
   }
 

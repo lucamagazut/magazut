@@ -4,6 +4,8 @@ import { observer } from '@ember/object';
 
 export default Route.extend({
   showSuccess:false,
+  isErrorShowed:false,
+  errorText:'',
   currentController:null,
   beforeModel(){
     this.store.findAll('category');
@@ -29,10 +31,16 @@ export default Route.extend({
       this.currentController.set('showSuccess', true);
       Ember.run.later((function() {
         console.log('showSuccess false');
-
         _t.currentController.set('showSuccess', false);
       }), 5000);
+    },
+    showError(error){
+      const _t = this;
+      this.currentController.set('errorText', error);
+      this.currentController.set('isErrorShowed', true);
+      Ember.run.later((function() {
+        _t.currentController.set('isErrorShowed', false);
+      }), 5000);
     }
-
   }
 });

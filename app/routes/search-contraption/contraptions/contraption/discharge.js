@@ -33,7 +33,7 @@ export default Route.extend({
 
           // alert('ok');
           this.transitionTo('search-contraption.contraptions');
-          this.send('showSuccessAlert')
+          this.send('showSuccessAlert');
         })
         .catch(function(error){
           console.log(error);
