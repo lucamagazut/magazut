@@ -39,9 +39,12 @@ export default Service.extend({
           if(preQueryObj[kk].id && preQueryObj[kk].id.length !== 0){
             queryObj[kk] = preQueryObj[kk].id.join();
           }
-
           if(preQueryObj[kk].tokens.length !== 0){
-            queryObj['text'] = preQueryObj[kk].tokens.join();
+            if(preQueryObj[kk].text){
+              queryObj['text'] = preQueryObj[kk].text.join();
+            }else{
+              queryObj['text'] = preQueryObj[kk].tokens.join();
+            }
           }
         }
       }
@@ -80,7 +83,7 @@ export default Service.extend({
             return {id:ele.id, tokens: []};
           }
           else{
-            return {id:previusSearch.id, tokens: ele.tokens};
+            return {id:previusSearch.id, tokens: ele.tokens, text:ele.text};
           }
         }
       }
