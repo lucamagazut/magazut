@@ -79,11 +79,15 @@ export default Service.extend({
         if(checkTokenOccurences(ele.tokens, textToSearch)){
           if(ele.subtypes){
             return parseArray(ele.subtypes, textToSearch, {id:ele.id, tokens: []});
-          }else if(ele.id){
+          }
+          else if(ele.text){
+            return {id:ele.id ,tokens: ele.tokens, text:ele.text};
+          }
+          else if(ele.id){
             return {id:ele.id, tokens: []};
           }
           else{
-            return {id:previusSearch.id, tokens: ele.tokens, text:ele.text};
+            return {id:previusSearch.id, tokens: ele.tokens};
           }
         }
       }
