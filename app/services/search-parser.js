@@ -129,6 +129,7 @@ export default Service.extend({
     var parseIdCode = function(code_idObj, searchText){
       var check = false;
       code_idObj.tokens.forEach((item, i) => {
+
         if(searchText.includes(item)){
           check = true;
         }
@@ -137,13 +138,13 @@ export default Service.extend({
     };
 
 
-    _parser.normalizedText = function(testToNormalize){
+    _parser.normalizeText = function(testToNormalize){
       return testToNormalize.toLowerCase();
     };
 
 
     _parser.getApiQuery = function(emberStore, searchText, paginationObj){
-      let normalizedText = _parser.normalizedText(searchText);
+      let normalizedText = _parser.normalizeText(searchText);
 
       return new Promise(function(resolve, reject){
         _t.getSearchMap().then(function(searchMap) {

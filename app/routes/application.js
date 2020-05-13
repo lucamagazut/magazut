@@ -32,7 +32,7 @@ export default Route.extend({
       Ember.run.later((function() {
         console.log('showSuccess false');
         _t.currentController.set('showSuccess', false);
-      }), 5000);
+      }), 3000);
     },
     showError(error){
       const _t = this;
@@ -40,7 +40,7 @@ export default Route.extend({
       this.currentController.set('isErrorShowed', true);
       Ember.run.later((function() {
         _t.currentController.set('isErrorShowed', false);
-      }), 5000);
+      }), 3000);
     }
   }
 });
