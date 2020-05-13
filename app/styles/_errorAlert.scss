@@ -12,9 +12,9 @@
   font-size: 1.2em;
   box-shadow: 0 0 0 0 rgba(173, 255, 47, 1);
 	transform: scale(1);
-	animation: pulse 1.5s infinite;
+	animation: pulseerror 1.5s infinite;
 }
-@keyframes pulse {
+@keyframes pulseerror {
 	0% {
 		transform: scale(0.95);
 		box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
