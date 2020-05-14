@@ -1,11 +1,8 @@
 .search_contraption{
-  .momentaneo{
-    margin-top: 100px;
-  }
 
   .search{
     padding-top: 2em;
-
+    width: 50%;
   }
 
   .magnifier_glass{
@@ -16,7 +13,8 @@
   }
 
   #searchTextInput{
-    width: 20%;
+    width: 50%;
+    min-width: 250px;
   }
 
 }

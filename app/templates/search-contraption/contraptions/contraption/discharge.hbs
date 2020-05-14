@@ -18,10 +18,11 @@
       </ul>
 
       <div class="space_t_normal">
-        {{input type="text" name="quantity" value=quantity id="quantity" class="input_text" placeholder="Quantità da scaricare"}}
+        {{input type="number" required="required" step="1" min="0" name="quantity" value=quantity id="quantity" class="input_text" placeholder="Quantità da scaricare"}}
       </div>
       <div class="space_t_normal">
-        <select class="" name="operators">
+        <select required="required" class="" name="operators">
+          <option value="0" disabled selected>Seleziona</option>
           {{#each this.operators as |operator|}}
           <option onclick={{action (mut this.selectedOp) operator.id}} value={{operator.id}}>{{operator.name}} {{operator.surname}}</option>
           {{/each}}

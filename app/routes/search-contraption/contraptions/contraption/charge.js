@@ -3,24 +3,21 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend({
   chargeApi: service('charge-api'),
-  chargeValidator(){
-    //lato server?
-    return true;
-  },
   beforeModel(){
     console.log('qui nascondere');
   },
 
   setupController: function(controller, model) {
     controller.set('isReturned',this.isReturned);
+    controller.set('chargeQuantity', null);
     this._super(controller, model);
   },
 
   actions:{
     confirmCharge(){
-      if(this.chargeValidator()){
+      let qt = Number(this.get('controller').get('chargeQuantity'));
+      if(qt > 0){
 
-        let qt = this.get('controller').get('chargeQuantity');
         let isReturned = this.get('controller').get('isReturned');
         this.chargeApi.send(this.currentModel.get('id'), qt, isReturned).then((resp) => {
           let availableQt = resp.data[0].attributes.availableQt;
@@ -41,11 +38,9 @@ export default Route.extend({
             this.send('showError', 'Qualcosa è andato storto. Controlla i dati e riprova');
           }
         )
-        // .catch((error) =>{
-        //   alert('not ok');
-        // })
-
-
+      }
+      else{
+        this.send('showError', 'Qualcosa è andato storto. Controlla i dati e riprova');
       }
     }
   }

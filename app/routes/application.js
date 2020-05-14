@@ -29,6 +29,7 @@ export default Route.extend({
     showSuccessAlert(){
       const _t = this;
       this.currentController.set('showSuccess', true);
+      this.currentController.set('isErrorShowed', false);
       Ember.run.later((function() {
         console.log('showSuccess false');
         _t.currentController.set('showSuccess', false);
@@ -37,6 +38,7 @@ export default Route.extend({
     showError(error){
       const _t = this;
       this.currentController.set('errorText', error);
+      this.currentController.set('showSuccess', false);
       this.currentController.set('isErrorShowed', true);
       Ember.run.later((function() {
         _t.currentController.set('isErrorShowed', false);
