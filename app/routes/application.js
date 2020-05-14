@@ -40,7 +40,7 @@ export default Route.extend({
       this.currentController.set('isErrorShowed', true);
       Ember.run.later((function() {
         _t.currentController.set('isErrorShowed', false);
-      }), 3000);
+      }), 5000);
     }
   }
 });

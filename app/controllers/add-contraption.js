@@ -27,7 +27,7 @@ export default Controller.extend({
           this.send('showSuccessAlert')
         })
         .catch(error=>{
-          alert('Qualcosa è andato storto. Controlla i dati e riprova');
+          this.send('showError', 'Qualcosa è andato storto. Controlla i dati e riprova');
         });
       }
     }

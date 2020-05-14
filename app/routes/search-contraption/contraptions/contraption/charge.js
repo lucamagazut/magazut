@@ -30,7 +30,7 @@ export default Route.extend({
           this.currentModel.set('availableQt', availableQt);
           this.currentModel.set('order_status', order_status);
           this.currentModel.set('borrowed_qt', borrowed_qt);
-          
+
 
           // alert('ok');
           this.transitionTo('search-contraption.contraptions');
@@ -38,7 +38,7 @@ export default Route.extend({
           // this.transitionTo('search-contraption');
         },
           (error) =>{
-            alert('error')
+            this.send('showError', 'Qualcosa è andato storto. Controlla i dati e riprova');
           }
         )
         // .catch((error) =>{

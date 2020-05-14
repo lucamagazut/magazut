@@ -30,14 +30,14 @@ export default Route.extend({
           // this.send('refreshAfterSuccess');
         })
         .catch(error=>{
-          alert('Qualcosa è andato storto. Controlla i dati e riprova');
+          this.send('showError', 'Qualcosa è andato storto. Controlla i dati e riprova');
         });
       }
     },
     deleteContraption(){
       if(window.confirm('Sei sicuro di eliminare?')){
         this.controller.get('model').destroyRecord().then(data =>{
-          alert('Cancellato');
+          this.send('showSuccessAlert')
           this.transitionTo('search-contraption');
         })
         .catch(error=>{

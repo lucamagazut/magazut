@@ -17,6 +17,7 @@ export default Route.extend({
 
   actions:{
     confirmDisharge(){
+      var _t = this;
       if(this.dischargeValidator()){
 
         let qt = this.get('controller').get('quantity');
@@ -36,8 +37,7 @@ export default Route.extend({
           this.send('showSuccessAlert');
         })
         .catch(function(error){
-          console.log(error);
-          alert('Qualcosa è andato storto. Controlla i dati e riprova');
+          _t.send('showError', 'Qualcosa è andato storto. Controlla i dati e riprova');
         });
 
       }
