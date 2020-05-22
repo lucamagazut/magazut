@@ -1,0 +1,69 @@
+
+.history_table{
+  display: table;
+  margin-top: 10px;
+  margin-left: 2px;
+
+  &.montly{
+    width: 500px;
+  }
+  &.chrono{
+    width: 800px;
+  }
+
+  caption{
+    padding-bottom: 10px;
+    font-size: 1.2em;
+    text-align: left;
+    font-weight: bold;
+  }
+  thead{
+    border-bottom: 1px solid black;
+    .history_pagination{
+      padding-bottom: 10px;
+    }
+  }
+  th{
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 0 10px 5px 10px;
+    box-sizing: border-box;
+  }
+  tbody{
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    tr{
+      border-bottom: 1px solid black;
+    }
+    td{
+      // cursor: pointer;
+      padding:10px 10px;
+      border-right: 1px solid lightgrey;
+      // &:last-child{
+      //   cursor: default;
+      // }
+    }
+  }
+}
+
+
+#history_main{
+
+  .link_list{
+    padding-left: 15px;
+    li{
+      padding-top: 10px;
+      a{
+        font-size: 1.2em;
+      }
+    }
+  }
+  .left_panel{
+    min-width: 20%;
+    padding-right: 20px;
+  }
+  .right_panel{
+
+  }
+
+}

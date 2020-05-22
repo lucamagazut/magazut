@@ -1,0 +1,37 @@
+
+<div class="">
+  <table class="history_table chrono">
+    <caption>Cronologica per singolo prodotto - {{contraption_denomination}} / {{contraption_id_code}}</caption>
+    <thead>
+      <tr>
+        <td colspan="5">
+          Mostrati {{items_showed}} eventi su {{total_items}} ----- Pagina {{current_page}}/{{total_pages}}
+          <div class="history_pagination to_right">
+            <button class="link" type="button" name="history_prev" {{action "on_history_prev"}}>Pagina precedente</button>
+            <span> / </span>
+            <button class="link" type="button" name="history_next" {{action "on_history_next"}}>Pagina successiva</button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>Data</th>
+        <th>Evento</th>
+        <th>Utente</th>
+        <th title="Quantità coinvolta">Quantità coinvolta</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.history_list as |history| }}
+        {{#if history.transaction_time}}
+        <tr class="clickable" {{action "onClickHistory" history.contraption_id}}>
+          <td title="Data della transizione">{{history.transaction_time}}</td>
+          <td title="Evento">{{history.transaction_type}}</td>
+          <td title="Utente ricevente">{{history.employee_complete_name}}</td>
+          <td title="Quantità coinvolta">{{history.involved_quantity}}</td>
+        </tr>
+        {{/if}}
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+{{outlet}}

@@ -1,38 +1,4 @@
 <MenuHeader></MenuHeader>
 
-<table class="unloading_histores">
-  <thead>
-    <tr>
-      <th>Data</th>
-      <th>Aggeggio</th>
-      <th>Codice</th>
-      <th>Utente ricevente</th>
-      <th title="Quantità ricevuta">Qt</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each this.history_list as |history| }}
-    {{#if history.transaction_time}}
-    <tr class="clickable" {{action "onClickHistory" history.contraption_id}}>
-      <td title="Data della transizione">{{history.transaction_time}}</td>
-      <td title="Nomenclatura Aggeggio">{{history.contraption_denomination}}</td>
-      <td title="Codice">{{history.contraption_id_code}}</td>
-      <td title="Utente ricevente">{{history.employee_name}} {{history.employee_second_name}}</td>
-      <td title="Quantità ricevuta">{{history.involved_quantity}}</td>
-    </tr>
-    {{/if}}
-    {{/each}}
-  </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="5">
-          <div class="history_pagination to_right">
-            <button class="clickable" type="button" name="history_prev" {{action "on_history_prev"}}>prev</button>
-            <button class="clickable" type="button" name="history_next" {{action "on_history_next"}}>next</button>
-          </div>
-      </td>
-    </tr>
-  </tfoot>
-</table>
 
 {{outlet}}

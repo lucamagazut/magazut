@@ -17,12 +17,6 @@ export default Route.extend({
     controller.set('showSuccess', this.showSuccess);
   },
 
-  // caccana:observer('cane',function(){
-  //   alert(this.cane)
-  // }),
-
-
-
   actions:{
     back(){window.history.back();},
 
@@ -31,7 +25,7 @@ export default Route.extend({
       this.currentController.set('showSuccess', true);
       this.currentController.set('isErrorShowed', false);
       Ember.run.later((function() {
-        console.log('showSuccess false');
+        // console.log('showSuccess false');
         _t.currentController.set('showSuccess', false);
       }), 3000);
     },

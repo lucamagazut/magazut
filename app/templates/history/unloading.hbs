@@ -1,0 +1,38 @@
+
+<div class="">
+  <table class="history_table chrono">
+    <caption>Cronologica per singola transazione</caption>
+    <thead>
+      <tr>
+        <td colspan="5">
+          <div class="history_pagination to_right">
+            <button class="link" type="button" name="history_prev" {{action "on_history_prev"}}>Pagina precedente</button>
+            <span> / </span>
+            <button class="link" type="button" name="history_next" {{action "on_history_next"}}>Pagina successiva</button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>Data</th>
+        <th>Articolo</th>
+        <th>Codice</th>
+        <th>Utente ricevente</th>
+        <th title="Quantità ricevuta">Qt</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.history_list as |history| }}
+        {{#if history.transaction_time}}
+        <tr>
+          <td title="Data della transizione">{{history.transaction_time}}</td>
+          <td class="clickable" title="Clicca per history del prodotto" {{action "onClickHistory" history.contraption_id}}>{{history.contraption_denomination}}</td>
+          <td title="Codice">{{history.contraption_id_code}}</td>
+          <td class="clickable" title="Clicca per history operatore" {{action "onClickUserHistory" history.user_id}}>{{history.employee_name}} {{history.employee_second_name}}</td>
+          <td title="Quantità ricevuta">{{history.involved_quantity}}</td>
+        </tr>
+        {{/if}}
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+{{outlet}}

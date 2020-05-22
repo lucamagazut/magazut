@@ -3,7 +3,7 @@
     <AppTitle/>
     <div class="menu_header">
       <ul>
-        <li>{{link-to "Home" "home"}}</li>
+        <!-- <li>{{link-to "Home" "home"}}</li> -->
         <li>{{link-to "Cerca" "search-contraption"}}</li>
         <li>
           {{#link-to "search-contraption.contraptions" (query-params text="{runout}")}}
@@ -11,6 +11,7 @@
           {{/link-to}}
         </li>
         <li>{{link-to "Aggiungi Utensile" "add-contraption"}}</li>
+        <li>{{link-to "History" "history"}}</li>
       </ul>
     </div>
   </div>

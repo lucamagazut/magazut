@@ -3,7 +3,7 @@ import moment from 'moment';
 
 export default DS.Transform.extend({
   deserialize(serialized) {
-    return moment(serialized).locale("it").format('D MMMM YYYY, H:mm:ss');
+    return moment(serialized).locale("it").format('D MMMM YYYY, H:mm');
   },
 
   serialize(deserialized) {

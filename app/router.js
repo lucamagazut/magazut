@@ -21,6 +21,15 @@ Router.map(function() {
     });
   });
   this.route('modify-contraption');
+  this.route('history', function() {
+    this.route('unloading');
+    this.route('monthly');
+    this.route('average');
+    this.route('contraption', { path: '/:contraption_id' }, function() {});
+    this.route('employee-histories', function() {
+      this.route('employee',{ path: '/:employee_history_id' });
+    });
+  });
 });
 
 export default Router;
