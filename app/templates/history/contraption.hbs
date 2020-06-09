@@ -1,7 +1,9 @@
 
 <div class="">
   <table class="history_table chrono">
-    <caption class="clickable" title="Clicca per history del prodotto" {{action "onClickContraptionHistory" contraption_id}}>Cronologica per singolo prodotto - {{contraption_denomination}} / {{contraption_id_code}}</caption>
+    <caption title="Clicca per history del prodotto">Cronologica per singolo prodotto -
+      <span class="clickable" {{action "onClickContraptionHistory" contraption_id}}>{{contraption_denomination}} / {{contraption_id_code}}</span>
+    </caption>
     <thead>
       <tr>
         <td colspan="5">

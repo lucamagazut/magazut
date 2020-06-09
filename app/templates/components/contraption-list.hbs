@@ -23,10 +23,10 @@
   <tbody>
     {{#each this.list as |ut| }}
       <tr>
-        <td class="denomination" {{action "onClickContraption" ut}}>{{ut.denomination}}</td>
-        <td {{action "onClickContraption" ut}}>{{ut.idCode}}</td>
-        <td {{action "onClickContraption" ut}}>{{ut.typeName}}</td>
-        <td {{action "onClickContraption" ut}}>
+        <td class="denomination clickable" {{action "onClickContraption" ut}}>{{ut.denomination}}</td>
+        <td class="clickable" {{action "onClickContraption" ut}}>{{ut.idCode}}</td>
+        <td class="clickable" {{action "onClickContraption" ut}}>{{ut.typeName}}</td>
+        <td class="clickable" {{action "onClickContraption" ut}}>
           <ul>
             {{#if ut.ut-rad-ins}}
               <li>Raggio inserto: {{ut.ut-rad-ins}}</li>
@@ -45,9 +45,9 @@
             {{/if}}
           </ul>
         </td>
-        <td {{action "onClickContraption" ut}}>{{ut.machineName}}</td>
-        <td class="material" {{action "onClickContraption" ut}}>{{ut.materialName}}</td>
-        <td class="available_qt" {{action "onClickContraption" ut}}><span title="Quantità disponibile">{{ut.availableQt}}</span><span title="Imprestate/affilatura"> / ({{ut.borrowed_qt}})</span></td>
+        <td class="clickable" {{action "onClickContraption" ut}}>{{ut.machineName}}</td>
+        <td class="material clickable" {{action "onClickContraption" ut}}>{{ut.materialName}}</td>
+        <td class="available_qt"><span title="Quantità disponibile">{{ut.availableQt}}</span><span title="Imprestate/affilatura"> / ({{ut.borrowed_qt}})</span></td>
         <td class="order_state_color_{{ut.order_status}}">
           <FSelect data-contraption-id="{{ut.id}}" @change={{onClickOrderStatus}} @list={{this.order_statuses}} @value={{ut.order_status}}/>
         </td>
