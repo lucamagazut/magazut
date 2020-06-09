@@ -70,6 +70,10 @@ h2{
   padding-left: 10px;
 }
 
+.space_t_10{
+  padding-top: 10px;
+}
+
 .link{
   background-color: transparent;
   border: none;
@@ -121,16 +125,10 @@ a.button, button.button, input.button{
 
 .to_left{
   text-align: left;
-  &>{
-    display: inline-block;
-  }
 }
 
 .to_right{
   text-align: right;
-  &>{
-    display: inline-block;
-  }
 }
 
 .fleft{
@@ -194,4 +192,12 @@ select{
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.isDisabled {
+  pointer-events: none;
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
 }

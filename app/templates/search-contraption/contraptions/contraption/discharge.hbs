@@ -24,7 +24,7 @@
         <select required="required" class="" name="operators">
           <option value="0" disabled selected>Seleziona</option>
           {{#each this.operators as |operator|}}
-          <option onclick={{action (mut this.selectedOp) operator.id}} value={{operator.id}}>{{operator.name}} {{operator.surname}}</option>
+          <option onclick={{action (mut this.selectedOp) operator.id}} value={{operator.id}}>{{operator.name}}</option>
           {{/each}}
         </select>
         <label for="operators" class="space_r_10">Operatore ricevente</label>

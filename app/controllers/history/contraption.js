@@ -38,6 +38,8 @@ export default Controller.extend({
         this.set('items_showed', pagination.get('items_showed'));
         this.set('is_prev', pagination.get('is_prev'));
         this.set('is_next', pagination.get('is_next'));
+      }, (error)=>{
+        this.set('history_list',{});
       });
     }
   },

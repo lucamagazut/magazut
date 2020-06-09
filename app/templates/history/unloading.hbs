@@ -5,6 +5,7 @@
     <thead>
       <tr>
         <td colspan="5">
+          Mostrati {{items_showed}} eventi su {{total_items}} ----- Pagina {{current_page}}/{{total_pages}}
           <div class="history_pagination to_right">
             <button class="link" type="button" name="history_prev" {{action "on_history_prev"}}>Pagina precedente</button>
             <span> / </span>
@@ -21,7 +22,7 @@
       </tr>
     </thead>
     <tbody>
-      {{#each this.history_list as |history| }}
+      {{#each this.model as |history| }}
         {{#if history.transaction_time}}
         <tr>
           <td title="Data della transizione">{{history.transaction_time}}</td>

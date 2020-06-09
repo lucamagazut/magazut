@@ -1,3 +1,6 @@
-  {{#each this.list as |elem|}}
-    <option value={{elem.id}}>{{elem.name}}</option>
-  {{/each}}
+{{#if showDisabledOption}}
+  <option value="0" disabled>Seleziona</option>
+{{/if}}
+{{#each this.list as |elem|}}
+  <option value={{elem.id}}>{{elem.name}}</option>
+{{/each}}

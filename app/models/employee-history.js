@@ -8,7 +8,7 @@ export default Model.extend({
   contraption_id: DS.attr(),
   contraption_denomination: DS.attr(),
   contraption_id_code: DS.attr(),
-  transaction_time:DS.attr(),
+  transaction_time:DS.attr('data-ita'),
   employee_name: DS.attr('String'),
   employee_second_name: DS.attr(),
   employee_complete_name:computed('employee_name',function(){
@@ -17,12 +17,5 @@ export default Model.extend({
     }else{
       return this.employee_name + ' ' + this.employee_second_name;
     }
-  }),
-  
-  current_month:computed('transaction_time',function(){
-    return moment(this.transaction_time).locale("it").format('MMMM');
-  }),
-  current_year:computed('transaction_time',function(){
-    return moment(this.transaction_time).locale("it").format('YYYY');
-  }),
+  })
 });

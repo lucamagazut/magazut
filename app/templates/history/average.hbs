@@ -3,6 +3,7 @@
   <thead>
     <tr>
       <td colspan="5">
+        Mostrati {{this.model.length}} differenti articoli
         <div class="history_pagination to_right">
           <button class="link" type="button" name="history_prev" {{action "on_history_prev"}}>Anno successivo</button>
           <span> / </span>
@@ -17,7 +18,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#each this.history_list as |history| }}
+    {{#each this.model as |history| }}
       {{#if history.transaction_time}}
       <tr class="clickable" {{action "onClickHistory" history.contraption_id}}>
         <td title="Quantità">{{history.quantity}}</td>

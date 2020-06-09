@@ -50,9 +50,13 @@
       <div class="buttons_cont">
         <ul>
           <li>
-            {{#link-to 'search-contraption.contraptions.contraption.discharge' class="button"}}
-            Scarica
-            {{/link-to}}
+            {{#if this.model.availableQt}}
+              {{#link-to 'search-contraption.contraptions.contraption.discharge' class="button"}}
+              Scarica
+              {{/link-to}}
+              {{else}}
+              <a href="#" class="button isDisabled" disabled="disabled">Scarica</a>
+            {{/if}}
           </li>
           <li>
             {{#link-to 'search-contraption.contraptions.contraption.charge' class="button"}}
@@ -66,6 +70,11 @@
           <li>
             {{#link-to "modify-contraption" (query-params c_id=this.model.id) class="link"}}
             Modifica
+            {{/link-to}}
+          </li>
+          <li>
+            {{#link-to "history.contraption" this.model.id class="link"}}
+            History
             {{/link-to}}
           </li>
           {{!-- <li>

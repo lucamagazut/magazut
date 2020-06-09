@@ -10,8 +10,11 @@
   &.chrono{
     width: 800px;
   }
+  &.employee{
+    width: 700px;
+  }
 
-  caption{
+  caption, .caption{
     padding-bottom: 10px;
     font-size: 1.2em;
     text-align: left;

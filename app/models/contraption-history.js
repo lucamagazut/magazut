@@ -29,6 +29,7 @@ export default DS.Model.extend({
       }
   }),
 
+  employee_id: DS.attr('String'),
   employee_name: DS.attr('String'),
   employee_second_name: DS.attr(),
   employee_complete_name:computed('employee_name',function(){
