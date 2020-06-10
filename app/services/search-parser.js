@@ -169,9 +169,8 @@ export default Service.extend({
             else{
               let categoryObj = parseCategories(searchMap.filters, normalizedText);
 
-
               console.log(categoryObj);
-              if(categoryObj.contraption_type || categoryObj.filter){
+              if(categoryObj.contraption_type || categoryObj.filter || categoryObj.machine){
                 let geometryObj = parseGeometry(searchMap.geometryFilter, normalizedText);
                 apiObj = {...categoryObj, ...geometryObj, ...paginationObj};
               }else{
