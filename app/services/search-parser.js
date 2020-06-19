@@ -137,7 +137,7 @@ export default Service.extend({
       var check = false;
       code_idObj.tokens.forEach((item, i) => {
 
-        if(searchText.includes(item)){
+        if(searchText.startsWith(item)){
           check = true;
         }
       });
