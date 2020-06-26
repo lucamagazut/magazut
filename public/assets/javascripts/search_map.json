@@ -1,4 +1,9 @@
 {
+  "text-search":{
+    "name":"Ricerca testo su code_id e description",
+    "token":"text",
+    "id":"text"
+  },
   "c_id":{
     "name":"contraption_id filter",
     "token":"{c_id=[0-9]+",
@@ -9,6 +14,13 @@
     "tokens":["FHM-N","FHM-M","FHM4T","MHSS","MP","PHMF","PHM","PHSS","PCHSS","FHMSG","CNMG","TCMT","KNUX","DNMG","CCMT","WNMG","SCMT","DCMT"]
   },
   "filters":{
+    "filter":[
+      {
+        "name":"Filtro Runout",
+        "id":["runout"],
+        "tokens":["{runout}"]
+      }
+    ],
     "contraption_type":[
       {
         "name":"punte",
@@ -248,13 +260,6 @@
         "name":"Acciaio Temprato",
         "id":[7],
         "tokens":["temprato","trattato","cementato","tempra","cemento"]
-      }
-    ],
-    "filter":[
-      {
-        "name":"Filtro Runout",
-        "id":["runout"],
-        "tokens":["{runout}"]
       }
     ]
   },

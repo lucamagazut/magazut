@@ -21,10 +21,10 @@
   <tbody>
     {{#each this.model as |history| }}
       {{#if history.transaction_time}}
-      <tr class="clickable" {{action "onClickHistory" history.contraption_id}}>
+      <tr>
         <td title="Data della transizione">{{history.transaction_time}}</td>
         <td title="Quantità">{{history.quantity}}</td>
-        <td title="Nomenclatura Aggeggio">{{history.contraption_denomination}}</td>
+        <td title="Nomenclatura Aggeggio" class="clickable" {{action "onClickHistory" history.contraption_id}}>{{history.contraption_denomination}}</td>
         <td title="Codice">{{history.contraption_id_code}}</td>
       </tr>
       {{/if}}
