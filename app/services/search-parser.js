@@ -24,11 +24,12 @@ export default Service.extend({
     var parseCategories = function(filterObj, textToSearch){
       var k;
       var preQueryObj = {};
+      let occurencesList = [];
 
       for(k in filterObj){
         // console.log('parsa '+ k);
 
-        preQueryObj[k] = parseArray(filterObj[k], textToSearch);
+        preQueryObj[k] = parseArray(filterObj[k], textToSearch, occurencesList);
       }
 
       var kk;
@@ -41,44 +42,48 @@ export default Service.extend({
           }
           if(preQueryObj[kk].tokens.length !== 0){
             if(preQueryObj[kk].text){
-              queryObj['text'] = preQueryObj[kk].text.join();
+              queryObj['text'] = preQueryObj[kk].text;
             }else{
-              queryObj['text'] = preQueryObj[kk].tokens.join();
+              queryObj['text'] = preQueryObj[kk].tokens;
             }
           }
         }
       }
-      return queryObj;
+      return [queryObj, occurencesList];
     };
 
     var parseGeometry = function(filterObj, textToSearch){
       var k;
       var queryObj = {};
+      let geometryOccurencesList = [];
+
 
       for(k in filterObj){
         // console.log('parsa '+ k);
-        let text = searchGeometryOccurrences(filterObj[k], textToSearch);
+        let [text, occurence] = searchGeometryOccurrences(filterObj[k], textToSearch);
 
         if(text !== ''){
+          geometryOccurencesList.push(occurence);
           queryObj[k] = text;
         }
       }
-      return queryObj;
+      return [queryObj, geometryOccurencesList];
     };
 
-    var parseArray = function (arrayToParse, textToSearch, previusSearch) {
+    var parseArray = function (arrayToParse, textToSearch, occurencesList, previusSearch) {
       var i;
       // console.log('entra parsearrai');
       // console.log(arrayToParse);
       // console.log(textToSearch);
       // console.log(previusSearch);
-      // console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
       var len = arrayToParse.length;
       for(i = 0; i<len; i++){
         let ele = arrayToParse[i];
-        if(checkTokenOccurences(ele.tokens, textToSearch)){
+        let occurence = checkTokenOccurences(ele.tokens, textToSearch);
+        if(occurence !== ''){
+          occurencesList.push(occurence);
           if(ele.subtypes){
-            return parseArray(ele.subtypes, textToSearch, {id:ele.id, tokens: []});
+            return parseArray(ele.subtypes, textToSearch, occurencesList, {id:ele.id, tokens: []});
           }
           else if(ele.text){
             return {id:ele.id ,tokens: ele.tokens, text:ele.text};
@@ -95,31 +100,35 @@ export default Service.extend({
     };
 
     var checkTokenOccurences = function(tokenArray, textToSearch){
-      var i;
+      let i;
       let len = tokenArray.length;
+      let textFinded = '';
 
       // console.log('confronta '+ JSON.stringify(tokenArray) + '   '+ textToSearch);
 
       for(i=0; i<len; i++){
         if(textToSearch.includes(tokenArray[i])){
-          return true;
+          textFinded = tokenArray[i];
+          break;
         }
       }
-      return false;
+      return textFinded;
     };
 
     var searchGeometryOccurrences = function(geometryFilter, normalizedText){
       const regExReplaceText = /[^0-9,.]/g;
       var result = '';
+      let occurence = '';
 
       geometryFilter.tokens.forEach(token => {
         let regEx = new RegExp(token);
         let searchPos = normalizedText.search(regEx);
         if(searchPos!==-1){
-          result = normalizedText.match(regEx)[0].replace(regExReplaceText,'');
+          occurence = normalizedText.match(regEx)[0];
+          result = occurence.replace(regExReplaceText,'');
         }
       });
-      return result;
+      return [result, occurence];
     };
 
     var parseId = function(idFilter, normalizedText){
@@ -150,8 +159,22 @@ export default Service.extend({
     };
 
 
+    var removeOccurences = function(text, categoryOccurencesList, geometryOccurencesList){
+      let newText = text + '';
+
+      categoryOccurencesList.forEach((item, i) => {
+        newText = newText.replace(item, '');
+      });
+      geometryOccurencesList.forEach((item, i) => {
+        newText = newText.replace(item, '');
+      });
+      return newText;
+    };
+
     _parser.getApiQuery = function(emberStore, searchText, paginationObj){
       let normalizedText = _parser.normalizeText(searchText);
+      let querySearchPureText = normalizedText + '';
+
 
       return new Promise(function(resolve, reject){
         _t.getSearchMap().then(function(searchMap) {
@@ -163,20 +186,23 @@ export default Service.extend({
             apiObj = {c_id:idFilter};
           }
           else{
-            if(parseIdCode(searchMap['id-code'], searchText)){
-              apiObj = {"id-code":searchText};
-            }
-            else{
-              let categoryObj = parseCategories(searchMap.filters, normalizedText);
+            let categoryObj, remainText, categoryOccurencesList, geometryOccurencesList, geometryObj;
 
-              console.log(categoryObj);
-              if(categoryObj.contraption_type || categoryObj.filter || categoryObj.machine){
-                let geometryObj = parseGeometry(searchMap.geometryFilter, normalizedText);
-                apiObj = {...categoryObj, ...geometryObj, ...paginationObj};
-              }else{
-                apiObj = false;
-              }
+            [categoryObj, categoryOccurencesList] = parseCategories(searchMap.filters, normalizedText);
+
+            [geometryObj, geometryOccurencesList]  = parseGeometry(searchMap.geometryFilter, normalizedText);
+
+            let textToSearch = removeOccurences(normalizedText, categoryOccurencesList, geometryOccurencesList);
+
+            categoryObj.text = categoryObj.text || [];
+            if(textToSearch != ''){
+              categoryObj.text = categoryObj.text.concat(textToSearch.trim().split(' '));
             }
+
+            categoryObj.text = categoryObj.text.join();
+
+
+            apiObj = {...categoryObj, ...geometryObj, ...paginationObj};
 
           }
 
