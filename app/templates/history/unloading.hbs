@@ -17,8 +17,9 @@
         <th>Data</th>
         <th>Articolo</th>
         <th>Codice</th>
-        <th>Utente ricevente</th>
+        <th>Utente coinvolto</th>
         <th title="Quantità ricevuta">Qt</th>
+        <th>Tipo di transazione</th>
       </tr>
     </thead>
     <tbody>
@@ -30,6 +31,7 @@
           <td title="Codice">{{history.contraption_id_code}}</td>
           <td class="clickable" title="Clicca per history operatore" {{action "onClickUserHistory" history.user_id}}>{{history.employee_name}} {{history.employee_second_name}}</td>
           <td title="Quantità ricevuta">{{history.involved_quantity}}</td>
+          <td title="Tipo di transazione">{{history.it_short_description}}</td>
         </tr>
         {{/if}}
       {{/each}}

@@ -16,6 +16,7 @@
       <th>Quantità</th>
       <th>Nome articolo</th>
       <th>Codice id</th>
+      <th>Tipo di transazione</th>
     </tr>
   </thead>
   <tbody>
@@ -26,6 +27,7 @@
         <td title="Quantità">{{history.quantity}}</td>
         <td title="Nomenclatura Aggeggio" class="clickable" {{action "onClickHistory" history.contraption_id}}>{{history.contraption_denomination}}</td>
         <td title="Codice">{{history.contraption_id_code}}</td>
+        <td title="Tipo di transazione">{{history.it_short_description}}</td>
       </tr>
       {{/if}}
     {{/each}}

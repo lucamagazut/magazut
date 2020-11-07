@@ -7,6 +7,8 @@ export default DS.Model.extend({
   http_api_location: DS.attr(),
   involved_quantity: DS.attr(),
   contraption_id: DS.attr(),
+  transaction_id: DS.attr(),
+  it_short_description: DS.attr(),
 
   employee_name: DS.attr(),
   employee_second_name: DS.attr(),

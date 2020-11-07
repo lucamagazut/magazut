@@ -9,6 +9,8 @@ export default Model.extend({
   contraption_denomination: DS.attr(),
   contraption_id_code: DS.attr(),
   transaction_time:DS.attr('data-ita'),
+  transaction_id: DS.attr(),
+  it_short_description: DS.attr(),
   employee_name: DS.attr('String'),
   employee_second_name: DS.attr(),
   employee_complete_name:computed('employee_name',function(){
