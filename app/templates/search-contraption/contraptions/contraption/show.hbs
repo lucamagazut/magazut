@@ -5,7 +5,7 @@
       <h4>{{this.model.denomination}}</h4>
 
       <ul class="list_info">
-        <li>{{this.model.idCode}}</li>
+        <li>{{this.model.id_code}}</li>
         <li>
           <span>{{this.model.typeName}}</span>
           <span> || </span>
@@ -13,20 +13,20 @@
         </li>
         <li>
           <ul>
-            {{#if this.model.ut-rad-ins}}
-              <li>Raggio inserto: {{this.model.ut-rad-ins}}</li>
+            {{#if (if-not-zero this.model.geometry_radius)}}
+              <li>Raggio inserto: {{this.model.geometry_radius}}</li>
             {{/if}}
-            {{#if this.model.ut-long}}
-              <li>Lunghezza: {{this.model.ut-long}}</li>
+            {{#if (if-not-zero this.model.geometry_length)}}
+              <li>Lunghezza: {{this.model.geometry_length}}</li>
             {{/if}}
-            {{#if this.model.ut-thick}}
-              <li>Spessore: {{this.model.ut-thick}}</li>
+            {{#if (if-not-zero this.model.geometry_thickness)}}
+              <li>Spessore: {{this.model.geometry_thickness}}</li>
             {{/if}}
-            {{#if this.model.ut-dia}}
-              <li>Diametro: {{this.model.ut-dia}}</li>
+            {{#if (if-not-zero this.model.geometry_diameter)}}
+              <li>Diametro: {{this.model.geometry_diameter}}</li>
             {{/if}}
-            {{#if this.model.ut-deg}}
-              <li>Angolo: {{this.model.ut-deg}}</li>
+            {{#if (if-not-zero this.model.geometry_degree)}}
+              <li>Angolo: {{this.model.geometry_degree}}</li>
             {{/if}}
           </ul>
         </li>
@@ -35,35 +35,57 @@
           <span>{{this.model.materialName}}</span>
         </li>
         <li>
-          <div>Quantità disponibile in magazzino:<strong class="available_qt_text order_state_color_{{this.model.order_status}}">{{this.model.availableQt}}</strong></div>
+          <div>Quantità disponibile in magazzino:<strong class="available_qt_text order_state_color_{{this.model.order_status}}">{{this.model.in_store_qt}}</strong></div>
           <div class="order_state_text_cont">
             <FSelect data-contraption-id="{{this.model.id}}" @change={{action "onClickOrderStatus"}} @list={{this.order_statuses}} @value={{this.model.order_status}}/>
           </div>
           <div>
             {{#if this.model.borrowed_qt}}
-              Di cui prestate o in affilatura: <strong>{{this.model.borrowed_qt}}</strong>
+              Prestate o in affilatura: <strong>{{this.model.borrowed_qt}}</strong>
             {{/if}}
           </div>
         </li>
       </ul>
 
-      <div class="buttons_cont">
-        <ul>
-          <li>
-            {{#if this.model.availableQt}}
-              {{#link-to 'search-contraption.contraptions.contraption.discharge' class="button"}}
-              Scarica
+      <div class="buttons_cont clearfix">
+        <div class="table fright">
+          <div class="table-row">
+            <div class="table-cell">
+              {{#link-to 'search-contraption.contraptions.contraption.charge' class="button"}}
+              Carica
               {{/link-to}}
+            </div>
+            <div class="table-cell">
+              {{#if this.model.in_store_qt}}
+                {{#link-to 'search-contraption.contraptions.contraption.discharge' class="button"}}
+                  Scarica
+                {{/link-to}}
               {{else}}
-              <a href="#" class="button isDisabled" disabled="disabled">Scarica</a>
-            {{/if}}
-          </li>
-          <li>
-            {{#link-to 'search-contraption.contraptions.contraption.charge' class="button"}}
-            Carica
-            {{/link-to}}
-          </li>
-        </ul>
+                <a href="#" class="button isDisabled" disabled="disabled">Scarica</a>
+              {{/if}}
+            </div>
+          </div>
+          <div class="table-row second_row">
+            <div class="table-cell">
+              {{#if this.model.in_store_qt}}
+                {{#link-to 'search-contraption.contraptions.contraption.sharp' class="button"}}
+                  Affila
+                {{/link-to}}
+              {{else}}
+                <a href="#" class="button isDisabled" disabled="disabled">Affila</a>
+              {{/if}}
+            </div>
+            <div class="table-cell">
+              {{#if this.model.in_store_qt}}
+                {{#link-to 'search-contraption.contraptions.contraption.borrow' class="button"}}
+                  Presta
+                {{/link-to}}
+              {{else}}
+                <a href="#" class="button isDisabled" disabled="disabled">Presta</a>
+              {{/if}}
+            </div>
+          </div>
+        </div>
       </div>
       <div class="option_buttons_cont">
         <ul>

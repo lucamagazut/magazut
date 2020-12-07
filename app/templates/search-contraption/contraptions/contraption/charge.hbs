@@ -5,9 +5,9 @@
       <h3>Caricare</h3>
       <ul class="list_info">
         <li><h4>{{this.model.denomination}}</h4></li>
-        <li>{{this.model.idCode}}</li>
+        <li>{{this.model.id_code}}</li>
         <li>
-          <span>Quantità corrente: {{this.model.availableQt}}</span>
+          <span>Quantità totale corrente: {{this.model.available_qt}}</span>
           <span> == </span>
           <span class="order_state_color_{{this.model.order_status}}">{{this.model.order_status_name}}</span>
         </li>
@@ -17,14 +17,8 @@
         Inserire la quantità
       </div>
 
-
       <div class="space_t_half half_width">
         {{input type="number" required="required" step="1" min="0" name="chargeQuantity" class="input_text" placeholder="Scrivi quantità" value=chargeQuantity id="chargeQuantity"}}
-      </div>
-
-      <div class="space_t_normal">
-        <label for="is_returned" class="vmiddle">Ritornata?</label>
-        {{input id="is_returned" class="vmiddle space_r_10" type="checkbox" name="is_returned" checked=this.isReturned}}
       </div>
 
     </div>

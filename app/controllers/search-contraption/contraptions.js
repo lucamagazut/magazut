@@ -8,6 +8,7 @@ export default Controller.extend({
     return this.store.peekAll('order_status');
   }),
 
+
   actions:{
     showContraption(currentModelId){
       this.transitionToRoute('search-contraption.contraptions.contraption.show',currentModelId);

@@ -17,9 +17,9 @@
       </tr>
       <tr>
         <th>Data</th>
-        <th>Evento</th>
         <th>Utente</th>
         <th title="Quantità coinvolta">Quantità coinvolta</th>
+        <th>Tipo di transazione</th>
       </tr>
     </thead>
     <tbody>
@@ -27,9 +27,9 @@
         {{#if history.transaction_time}}
         <tr>
           <td title="Data della transizione">{{history.transaction_time}}</td>
-          <td title="Evento">{{history.transaction_type}}</td>
           <td class="clickable" title="Clicca per history operatore" {{action "onClickUserHistory" history.employee_id}}>{{history.employee_complete_name}}</td>
           <td title="Quantità coinvolta">{{history.involved_quantity}}</td>
+          <td title="Tipo di transazione">{{history.it_short_description}}</td>
         </tr>
         {{/if}}
       {{/each}}

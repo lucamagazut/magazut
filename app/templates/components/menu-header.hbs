@@ -10,8 +10,18 @@
             In esaurimento
           {{/link-to}}
         </li>
+        <!-- <li>
+          {{#link-to "search-contraption.contraptions" (query-params text="{borrowed}")}}
+            Prestati
+          {{/link-to}}
+        </li> -->
+        <li>
+          {{#link-to "borrowed-contraptions"}}
+            Prestati/Affilatura
+          {{/link-to}}
+        </li>
         <li>{{link-to "Aggiungi Utensile" "add-contraption"}}</li>
-        <li>{{link-to "History" "history"}}</li>
+        <li>{{link-to "Storico" "history"}}</li>
       </ul>
     </div>
   </div>

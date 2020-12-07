@@ -5,10 +5,7 @@ export default Route.extend({
 
   dischargeApi:service('discharge-api'),
 
-  isBorrowed:false,
-
   setupController: function(controller, model) {
-    controller.set('isBorrowed',this.isBorrowed);
     controller.set('quantity',1);
     controller.set('selectedOp',0);
 
@@ -19,22 +16,12 @@ export default Route.extend({
     confirmDisharge(){
       var _t = this;
       let qt = Number(this.get('controller').get('quantity'));
-      let currentQt = Number(this.currentModel.get('availableQt'));
-      let operator = Number(this.get('controller').get('selectedOp'));
+      let employee_id = Number(this.get('controller').get('selectedOp'));
 
-      if(operator !== 0 && qt > 0 & currentQt >= qt){
 
-        let isBorrowed = this.get('controller').get('isBorrowed');
-        this.dischargeApi.send(this.currentModel.get('id'), qt, operator, isBorrowed).then((resp) => {
-          let availableQt = resp.data[0].attributes.availableQt;
-          let order_status = resp.data[0].attributes.order_status;
-          let borrowed_qt = resp.data[0].attributes.borrowed_qt;
-
-          this.currentModel.set('availableQt', availableQt);
-          this.currentModel.set('order_status', order_status);
-          this.currentModel.set('borrowed_qt', borrowed_qt);
-
-          // alert('ok');
+      if(employee_id !== 0 && qt > 0 & this.currentModel.get('in_store_qt') >= qt){
+        this.dischargeApi.send(this.currentModel, employee_id, qt).then((resp) => {
+          this.currentModel.reload();
           this.transitionTo('search-contraption.contraptions');
           this.send('showSuccessAlert');
         })

@@ -6,29 +6,7 @@ export default DS.Model.extend({
   involved_quantity: DS.attr(),
   contraption_id: DS.attr(),
   transaction_id:DS.attr('Number'),
-  transaction_type:computed('transaction_id',function(){
-      switch (this.transaction_id) {
-        case 0: return 'Errore'
-          break;
-        case 1: return 'Carico articolo'
-          break;
-        case 2: return 'Scarico articolo'
-          break;
-        case 3: return 'Creazione articolo'
-          break;
-        case 4: return 'Modifica articolo'
-          break;
-        case 5: return 'Rimozione articolo'
-          break;
-        case 1: return 'Prestare articolo'
-          break;
-        case 1: return 'Ritorno articolo'
-          break;
-        default:return ''
-
-      }
-  }),
-
+  it_short_description: DS.attr(),
   employee_id: DS.attr('String'),
   employee_name: DS.attr('String'),
   employee_second_name: DS.attr(),

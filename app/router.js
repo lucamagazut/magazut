@@ -17,6 +17,9 @@ Router.map(function() {
         this.route('discharge');
         this.route('charge');
         this.route('show');
+        this.route('borrow');
+        this.route('return');
+        this.route('sharp');
       });
     });
   });
@@ -29,6 +32,15 @@ Router.map(function() {
     this.route('employee-histories', function() {
       this.route('employee',{ path: '/:employee_history_id' });
     });
+  });
+  this.route('borrowed-contraptions', function() {
+    this.route('contraption',  { path: '/:contraption_id' },function() {
+      this.route('show');
+      this.route('borrow');
+    });
+  });
+  this.route('utility', function() {
+    this.route('send-mail');
   });
 });
 

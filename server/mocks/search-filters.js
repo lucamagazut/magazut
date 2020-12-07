@@ -243,10 +243,10 @@ module.exports = function(app) {
             tokens:['dnmg']
           }
         },
-        //geometry, ut-long
+        //geometry, geometry_length
         {
           id:1,
-          type:'ut-long',
+          type:'geometry_length',
           attributes:{
             name:"Geometria-lunghezza",
             tokens:[
@@ -256,7 +256,7 @@ module.exports = function(app) {
         },
         {
           id:1,
-          type:'ut-dia',
+          type:'geometry_diameter',
           attributes:{
             name:"Geometria-diametro",
             tokens:[
@@ -266,7 +266,7 @@ module.exports = function(app) {
         },
         {
           id:1,
-          type:'ut-deg',
+          type:'geometry_degree',
           attributes:{
             name:"Geometria-angolo",
             tokens:[
@@ -276,7 +276,7 @@ module.exports = function(app) {
         },
         {
           id:1,
-          type:'ut-rad-ins',
+          type:'geometry_radius',
           attributes:{
             name:"Geometria-raggio inserto",
             tokens:[
@@ -286,7 +286,7 @@ module.exports = function(app) {
         },
         {
           id:1,
-          type:'ut-thick',
+          type:'geometry_thickness',
           attributes:{
             name:"Geometria-spessore",
             tokens:[

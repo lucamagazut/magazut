@@ -142,7 +142,7 @@ export default Service.extend({
       return result;
     };
 
-    var parseIdCode = function(code_idObj, searchText){
+    var parseid_code = function(code_idObj, searchText){
       var check = false;
       code_idObj.tokens.forEach((item, i) => {
 

@@ -18,16 +18,16 @@ module.exports = function(app) {
           "attributes":{
             "denomination": "utensile per tornio",
             "subType": 1,
-            "idCode": "asd3333k3kk3k3k",
-            "availableQt": 2,
+            "id_code": "asd3333k3kk3k3k",
+            "available_qt": 2,
             "purchaseRequest":"una scatola da 10pz",
-            "minQt": 1,
+            "minimum_qt": 1,
             "state": 0,
-            "ut-long": 10,
-            "ut-thick": 0,
-            "ut-rad-ins": 0,
-            "ut-dia": 0,
-            "ut-deg": 0
+            "geometry_length": 10,
+            "geometry_thickness": 0,
+            "geometry_radius": 0,
+            "geometry_diameter": 0,
+            "geometry_degree": 0
           },
           relationships:{
             material:{
@@ -53,16 +53,16 @@ module.exports = function(app) {
           "attributes":{
             "denomination": "utensile per strozza",
             "subType": 1,
-            "idCode": "dmng1123r44k332",
-            "availableQt": 5,
+            "id_code": "dmng1123r44k332",
+            "available_qt": 5,
             "purchaseRequest":"una scatola da 10pz",
-            "minQt": 1,
+            "minimum_qt": 1,
             "state": 1,
-            "ut-long": 0,
-            "ut-thick": 0,
-            "ut-rad-ins": 0.2,
-            "ut-dia": 0,
-            "ut-deg": 0
+            "geometry_length": 0,
+            "geometry_thickness": 0,
+            "geometry_radius": 0.2,
+            "geometry_diameter": 0,
+            "geometry_degree": 0
           },
           relationships:{
             material:{
@@ -88,16 +88,16 @@ module.exports = function(app) {
           "attributes":{
             "denomination": "utensile per aaaaaaaaaaaA asaSA asaSA",
             "subType": 1,
-            "idCode": "asd3333k3kk3k3k",
+            "id_code": "asd3333k3kk3k3k",
             "purchaseRequest":"una scatola da 10pz",
-            "availableQt": 2,
-            "minQt": 1,
+            "available_qt": 2,
+            "minimum_qt": 1,
             "state": 2,
-            "ut-long": 10,
-            "ut-thick": 0,
-            "ut-rad-ins": 0,
-            "ut-dia": 0,
-            "ut-deg": 0
+            "geometry_length": 10,
+            "geometry_thickness": 0,
+            "geometry_radius": 0,
+            "geometry_diameter": 0,
+            "geometry_degree": 0
           },
           relationships:{
             material:{
@@ -123,16 +123,16 @@ module.exports = function(app) {
           "attributes":{
             "denomination": "utensile per CANI",
             "subType": 1,
-            "idCode": "asd3333k3kk3k3k",
+            "id_code": "asd3333k3kk3k3k",
             "purchaseRequest":"una scatola da 10pz",
-            "availableQt": 1,
-            "minQt": 2,
+            "available_qt": 1,
+            "minimum_qt": 2,
             "state": 3,
-            "ut-long": 10,
-            "ut-thick": 0,
-            "ut-rad-ins": 0,
-            "ut-dia": 0,
-            "ut-deg": 0
+            "geometry_length": 10,
+            "geometry_thickness": 0,
+            "geometry_radius": 0,
+            "geometry_diameter": 0,
+            "geometry_degree": 0
           },
           relationships:{
             material:{
@@ -159,15 +159,15 @@ module.exports = function(app) {
             "denomination": "utensile per CANI",
             "subType": 1,
             "purchaseRequest":"una scatola da 10pz",
-            "idCode": "asd3333k3kk3k3k",
-            "availableQt": 0,
-            "minQt": 2,
+            "id_code": "asd3333k3kk3k3k",
+            "available_qt": 0,
+            "minimum_qt": 2,
             "state": 4,
-            "ut-long": 10,
-            "ut-thick": 0,
-            "ut-rad-ins": 0,
-            "ut-dia": 0,
-            "ut-deg": 0
+            "geometry_length": 10,
+            "geometry_thickness": 0,
+            "geometry_radius": 0,
+            "geometry_diameter": 0,
+            "geometry_degree": 0
           },
           relationships:{
             material:{
@@ -194,15 +194,15 @@ module.exports = function(app) {
             "denomination": "utensile per CANI",
             "subType": 1,
             "purchaseRequest":"una scatola da 10pz",
-            "idCode": "asd3333k3kk3k3k",
-            "availableQt": 1,
-            "minQt": 2,
+            "id_code": "asd3333k3kk3k3k",
+            "available_qt": 1,
+            "minimum_qt": 2,
             "state": 2,
-            "ut-long": 10,
-            "ut-thick": 0,
-            "ut-rad-ins": 0,
-            "ut-dia": 0,
-            "ut-deg": 0
+            "geometry_length": 10,
+            "geometry_thickness": 0,
+            "geometry_radius": 0,
+            "geometry_diameter": 0,
+            "geometry_degree": 0
           },
           relationships:{
             material:{
@@ -244,15 +244,15 @@ module.exports = function(app) {
             "denomination": "nuovo ut",
             "subType": 1,
             "purchaseRequest":"una scatola da 10pz",
-            "idCode": "abbarabba",
-            "availableQt": 222,
-            "minQt": 1,
+            "id_code": "abbarabba",
+            "available_qt": 222,
+            "minimum_qt": 1,
             "orderState": 1,
-            "ut-long": 10,
-            "ut-thick": 0,
-            "ut-rad-ins": 0,
-            "ut-dia": 0,
-            "ut-deg": 0
+            "geometry_length": 10,
+            "geometry_thickness": 0,
+            "geometry_radius": 0,
+            "geometry_diameter": 0,
+            "geometry_degree": 0
           },
           relationships:{
             material:{
@@ -286,16 +286,16 @@ module.exports = function(app) {
         "attributes":{
           "denomination": "utensile per CANI",
           "subType": 1,
-          "idCode": "asd3333k3kk3k3k",
+          "id_code": "asd3333k3kk3k3k",
           "purchaseRequest":"una scatola da 10pz",
-          "availableQt": 1,
-          "minQt": 2,
+          "available_qt": 1,
+          "minimum_qt": 2,
           "state": 3,
-          "ut-long": 10,
-          "ut-thick": 0,
-          "ut-rad-ins": 0,
-          "ut-dia": 0,
-          "ut-deg": 0
+          "geometry_length": 10,
+          "geometry_thickness": 0,
+          "geometry_radius": 0,
+          "geometry_diameter": 0,
+          "geometry_degree": 0
         }
       }});
   });
@@ -308,16 +308,16 @@ module.exports = function(app) {
         "attributes":{
           "denomination": "utensile per CANI",
           "subType": 1,
-          "idCode": "asd3333k3kk3k3k",
+          "id_code": "asd3333k3kk3k3k",
           "purchaseRequest":"una scatola da 10pz",
-          "availableQt": 1,
-          "minQt": 2,
+          "available_qt": 1,
+          "minimum_qt": 2,
           "state": 3,
-          "ut-long": 10,
-          "ut-thick": 0,
-          "ut-rad-ins": 0,
-          "ut-dia": 0,
-          "ut-deg": 0
+          "geometry_length": 10,
+          "geometry_thickness": 0,
+          "geometry_radius": 0,
+          "geometry_diameter": 0,
+          "geometry_degree": 0
         }
       }});
 

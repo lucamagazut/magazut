@@ -7,7 +7,7 @@ export default DS.Model.extend({
   surname: DS.attr(),
   name:computed('surname',function(){
     if(this.first_name.toLowerCase() == 'undefined'){
-      return '';
+      return 'Utente ignoto';
     }else{
       return this.surname + ' ' + this.first_name;
     }

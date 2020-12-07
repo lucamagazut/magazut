@@ -7,7 +7,7 @@ module('Unit | Model | ut dia', function(hooks) {
   // Replace this with your real tests.
   test('it exists', function(assert) {
     let store = this.owner.lookup('service:store');
-    let model = store.createRecord('ut-dia', {});
+    let model = store.createRecord('geometry_diameter', {});
     assert.ok(model);
   });
 });

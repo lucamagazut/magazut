@@ -6,18 +6,18 @@ export default Route.extend({
     this.currentModel = this.store.createRecord('contraption', {
       denomination:'',
       type:1,
-      material:1,
+      work_material:1,
       machine:1,
-      idCode:'',
-      availableQt:0,
+      id_code:'',
+      available_qt:0,
       borrowed_qt:0,
-      minQt:0,
+      minimum_qt:0,
       order_status:0,
-      'ut-long': 0,
-      'ut-thick': 0,
-      'ut-rad-ins': 0,
-      'ut-dia': 0,
-      'ut-deg': 0
+      geometry_length: 0,
+      geometry_thickness: 0,
+      geometry_radius: 0,
+      geometry_diameter: 0,
+      geometry_degree: 0
     });
     return this.currentModel;
   },

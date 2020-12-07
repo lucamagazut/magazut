@@ -9,9 +9,9 @@
       </div>
       <ul class="list_info">
         <li><h4>{{this.model.denomination}}</h4></li>
-        <li>{{this.model.idCode}}</li>
+        <li>{{this.model.id_code}}</li>
         <li>
-          <span>Quantità corrente: {{this.model.availableQt}}</span>
+          <span>Quantità disponibile: {{this.model.in_store_qt}}</span>
           <span> == </span>
           <span class="order_state_color_{{this.model.order_status}}">{{this.model.order_status_name}}</span>
         </li>
@@ -24,20 +24,15 @@
         <select required="required" class="" name="operators">
           <option value="0" disabled selected>Seleziona</option>
           {{#each this.operators as |operator|}}
-          <option onclick={{action (mut this.selectedOp) operator.id}} value={{operator.id}}>{{operator.name}}</option>
+          <option class="employee_option_{{operator.id}}" onclick={{action (mut this.selectedOp) operator.id}} value={{operator.id}}>{{operator.name}}</option>
           {{/each}}
         </select>
         <label for="operators" class="space_r_10">Operatore ricevente</label>
       </div>
-      <div class="space_t_normal">
-        <label for="is_borrowed" class="vmiddle">Da ritornare?</label>
-        {{input id="is_borrowed" class="vmiddle space_r_10" type="checkbox" name="is_borrowed" checked=this.isBorrowed}}
-      </div>
-
     </div>
     <div class="space_b_normal">
       <div class="center">
-        <button type="button" class="button" name="confirmDisharge" {{action "confirmDisharge"}}>Conferma</button>
+        <button type="button" class="button" name="confirmDisharge" {{action "confirmDisharge" false}}>Conferma</button>
       </div>
     </div>
 

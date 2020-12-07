@@ -1,12 +1,23 @@
 #show_contraption_main{
 
   .buttons_cont{
-    margin-top: 2em;
-    ul{
-      text-align: right;
+    text-align: right;
+    margin-top: 15px;
+    .table{
+      display: table;
     }
-    li{
-      display: inline-block;
+    .table-row{
+      display: table-row;
+      &.second_row{
+        .table-cell{
+          padding-top: 20px;
+        }
+      }
+    }
+    .table-cell{
+      padding-left: 10px;
+      text-align: center;
+      display: table-cell;
     }
 
   }

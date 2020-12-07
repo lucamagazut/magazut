@@ -11,7 +11,7 @@
 }
 
 .popup{
-  background-color: white;
+  background-color: $popup_bg_color;
   z-index: $zindex-show-contraction;
   position: fixed;
   margin: 0 auto;

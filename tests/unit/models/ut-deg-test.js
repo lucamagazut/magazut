@@ -7,7 +7,7 @@ module('Unit | Model | ut deg', function(hooks) {
   // Replace this with your real tests.
   test('it exists', function(assert) {
     let store = this.owner.lookup('service:store');
-    let model = store.createRecord('ut-deg', {});
+    let model = store.createRecord('geometry_degree', {});
     assert.ok(model);
   });
 });

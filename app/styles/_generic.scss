@@ -1,5 +1,6 @@
 $body-text-color:black;
-$app_bg_color:white;
+$app_bg_color:#fffeea;//#fffeea; //FFFDD0
+$popup_bg_color:#FFFDD0;
 $text-input-border-color:black;
 $text-input-border-color-selected:lightgreen;
 $input-text-font-size:1.1em;
@@ -18,6 +19,7 @@ $link_hover:#362768;
 $link_visited:#725AC1;
 $link_active:#362768;
 $link_shadow:none;
+$error_color:red;
 
 
 body{
@@ -26,6 +28,7 @@ body{
   color: $body-text-color;
   padding: 0em 2em 3em;
   margin: 0;
+  background-color: $app_bg_color;
 }
 
 h2{
@@ -42,6 +45,8 @@ img {border : 0;}
 
 * {
   box-sizing: border-box;
+  // background-color: red !important;
+  opacity: 1;
 }
 
 strong{
@@ -193,12 +198,18 @@ a.button, button.button, input.button{
 }
 
 select{
-  padding:0.5em;
+  padding:5px;
   font-size: 1.2em;
   border: 2px solid black;
   option:disabled{
     opacity: 0.6;
   }
+  appearance:none;
+  text-align: center;
+  background-image: url("images/dropdown_arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+
 }
 
 .clearfix {

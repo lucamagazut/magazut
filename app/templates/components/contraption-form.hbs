@@ -7,12 +7,12 @@
         {{input type="text" id="denomination" class="input_text" name="denomination" value=this.model.denomination}}
       </li>
       <li>
-        <label for="idCode">Codice identificativo</label>
-        {{input type="text" name="idCode" id="idCode" value=this.model.idCode class="input_text"}}
+        <label for="id_code">Codice identificativo</label>
+        {{input type="text" name="id_code" id="id_code" value=this.model.id_code class="input_text"}}
       </li>
       <li>
         <label for="material">Materiale</label>
-        <FSelect @list={{this.materials}} @value={{this.model.material}}/>
+        <FSelect @list={{this.materials}} @value={{this.model.work_material}}/>
       </li>
       <li>
         <label for="machine">Macchina</label>
@@ -23,16 +23,16 @@
         <FSelect @list={{this.contraptionTypes}} @value={{this.model.type}}/>
       </li>
       <li>
-        <label for="availableQt">Quantità diponibile</label>
-        {{input type="number" name="availableQt" value=this.model.availableQt class="input_text"}}
+        <label for="available_qt">Quantità diponibile</label>
+        {{input type="number" name="available_qt" value=this.model.available_qt class="input_text"}}
       </li>
-      <li>
-        <label for="availableQt">Quantità prestata</label>
+      <!-- <li>
+        <label for="available_qt">Quantità prestata</label>
         {{input type="number" name="borrowedQt" value=this.model.borrowed_qt class="input_text"}}
-      </li>
+      </li> -->
       <li>
-        <label for="minQt">Quantità minima</label>
-        {{input type="number" name="minQt" value=this.model.minQt class="input_text"}}
+        <label for="minimum_qt">Quantità minima</label>
+        {{input type="number" name="minimum_qt" value=this.model.minimum_qt class="input_text"}}
       </li>
       {{!-- <li>
         <label for="purchaseRequest">Richiesta acquisto</label>
@@ -44,24 +44,24 @@
     <legend>Geometria</legend>
     <ul>
       <li>
-        <label for="ut-long">Lunghezza</label>
-        {{input type="number" lang="en" step=".01" name="ut-long" value=this.model.ut-long class="input_text"}}
+        <label for="geometry_length">Lunghezza</label>
+        {{input type="number" lang="en" step=".01" name="geometry_length" value=this.model.geometry_length class="input_text"}}
       </li>
       <li>
-        <label for="ut-thick">Spessore</label>
-        {{input type="number" lang="en" step=".01" name="ut-thick" value=this.model.ut-thick class="input_text"}}
+        <label for="geometry_thickness">Spessore</label>
+        {{input type="number" lang="en" step=".01" name="geometry_thickness" value=this.model.geometry_thickness class="input_text"}}
       </li>
       <li>
-        <label for="ut-rad-ins">Raggio</label>
-        {{input type="number" lang="en" step=".01" name="ut-rad-ins" value=this.model.ut-rad-ins class="input_text"}}
+        <label for="geometry_radius">Raggio</label>
+        {{input type="number" lang="en" step=".01" name="geometry_radius" value=this.model.geometry_radius class="input_text"}}
       </li>
       <li>
-        <label for="ut-dia">Diametro</label>
-        {{input type="number" lang="en" step=".01" name="ut-dia" value=this.model.ut-dia class="input_text"}}
+        <label for="geometry_diameter">Diametro</label>
+        {{input type="number" lang="en" step=".01" name="geometry_diameter" value=this.model.geometry_diameter class="input_text"}}
       </li>
       <li>
-        <label for="ut-deg">Angolo</label>
-        {{input type="number" lang="en" step=".01" name="ut-deg" value=this.model.ut-deg class="input_text"}}
+        <label for="geometry_degree">Angolo</label>
+        {{input type="number" lang="en" step=".01" name="geometry_degree" value=this.model.geometry_degree class="input_text"}}
       </li>
     </ul>
   </fieldset>

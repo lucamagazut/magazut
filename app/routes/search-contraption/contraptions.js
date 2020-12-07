@@ -10,6 +10,7 @@ export default Route.extend({
       refreshModel: true
     }
   },
+  text:null,
   // findedItems:0,
   orderApi: service('order-api'),
   pagination:0,
@@ -19,10 +20,6 @@ export default Route.extend({
   }),
 
   totalPages:0,
-
-  // activate(){
-  //   alert(1)
-  // },
 
   searchParserService: service('search-parser'),
 
@@ -43,13 +40,6 @@ export default Route.extend({
   beforeModel: function(transition){
     let searchText = transition.to.queryParams.text || '';
     this.set('searchText', searchText);
-    // if(!searchText || searchText.replace( /\s/g, '') === ""){
-    //   transition.abort();
-    //   this.searchText = 'cacca';
-    // }else{
-    //   this.searchText = searchText;
-    //   // VAI AL MODEL
-    // }
   },
   afterModel(resolvedModel){
     let firstObj = resolvedModel.get('firstObject');
@@ -62,6 +52,11 @@ export default Route.extend({
     console.log('paginazine '+pagination);
     // this.controller.set('currentPage',this.get('pagination'));
     // this.findedItems = resolvedModel.get('length');
+    // this.get('model').update();
+    console.log('storrria');
+    console.log(this.store);
+    window.storia = this.store;
+
   },
   getPaginationObj(){
     return {page:this.get('pagination'), items: this.get('itemsForPage')};
@@ -88,7 +83,7 @@ export default Route.extend({
         return this;
 
       })
-    })
+    });
 
     // return this.store.query('contraption',queryApi);
   },
@@ -96,20 +91,20 @@ export default Route.extend({
   actions:{
     changeOrderStatus(modelId, orderStatusId, getBack){
       var store = this.store;
-      console.log(modelId);
-      console.log(orderStatusId);
       this.orderApi.send(modelId, orderStatusId).then((resp) => {
-        let order_status = resp.data.attributes.order_status;
-        store.peekRecord('contraption', modelId).set('order_status',order_status);
-        // this.transitionTo('search-contraption.contraptions');
+        if(resp.errors){
+          throw resp;
+        }
         if(getBack){
           this.send('back');
         }
-      },
-        (error) =>{
-          alert('error')
-        }
-      );
+        this.send('showSuccessAlert');
+        this.refresh();
+      })
+      .catch((error)=>{
+        this.send('showError',error);
+        store.peekRecord('contraption', modelId).rollbackAttributes();
+      });
     },
     onClickContraptionsPrev_b2(items){
       if(this.get('pagination') > 0){

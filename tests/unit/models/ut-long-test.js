@@ -7,7 +7,7 @@ module('Unit | Model | ut long', function(hooks) {
   // Replace this with your real tests.
   test('it exists', function(assert) {
     let store = this.owner.lookup('service:store');
-    let model = store.createRecord('ut-long', {});
+    let model = store.createRecord('geometry_length', {});
     assert.ok(model);
   });
 });

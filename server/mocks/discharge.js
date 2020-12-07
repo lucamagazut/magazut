@@ -13,7 +13,7 @@ module.exports = function(app) {
           id:queryObj.id,
           type:'contraption',
           attributes:{
-            availableQt:0,
+            available_qt:0,
             orderState:1
           }
         }

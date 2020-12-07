@@ -20,6 +20,9 @@ table.contraption_list_table{
     td{
       padding:10px 10px;
       border-right: 1px solid lightgrey;
+      &.order_status{
+        text-align: center;
+      }
     }
     .material{
       width: 23ex;

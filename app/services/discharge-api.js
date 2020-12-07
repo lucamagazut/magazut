@@ -4,7 +4,17 @@ import config from '../config/environment';
 
 export default Service.extend({
   ajax: service('ajax'),
-  send(modelId, qt, op, is_borrowed){
-    return this.ajax.makeGet(config.apiHostName + "/discharge", {id:modelId, qt:qt, op: op, is_borrowed:is_borrowed}, "PUT");
+  send(model, employee_id, qt_to_remove){
+
+    let queryObj = {
+      contraption_id: model.get('id'),
+      available_qt: model.get('available_qt'),
+      minimum_qt: model.get('minimum_qt'),
+      order_status: model.get('order_status'),
+      qt_to_remove: qt_to_remove,
+      employee_id:employee_id
+    };
+
+    return this.ajax.makeGet(config.apiHostName + "/discharge", queryObj, "PUT");
   }
 });

@@ -31,7 +31,13 @@ export default Route.extend({
     },
     showError(error){
       const _t = this;
-      this.currentController.set('errorText', error);
+      let errorText = '';
+      if(error.errors){
+        errorText = error.errors[0].detail;
+      }else{
+        errorText = error;
+      }
+      this.currentController.set('errorText', errorText);
       this.currentController.set('showSuccess', false);
       this.currentController.set('isErrorShowed', true);
       Ember.run.later((function() {
