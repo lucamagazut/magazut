@@ -1,0 +1,44 @@
+
+<div id="main_dicharge_contraption">
+  <div class="popup">
+    <a href="#" class="close_icon" {{action 'back'}}></a>
+    <div class="popup_inner">
+      <h3>Ritorna utensile</h3>
+      <div class="space_t_normal">
+        Seleziona quantità ritornata, e l'operatore a cui era stata prestata l'attrezzatura
+      </div>
+      <ul class="list_info">
+        <li><h4>{{this.model.denomination}}</h4></li>
+        <li>{{this.model.id_code}}</li>
+        <li class="strong">inserire nome persone a cui era stata prestata o impostare le select in quel modo</li>
+        <li>
+          <span>Quantità corrente: {{this.model.available_qt}}</span>
+          <span> == </span>
+          <span class="order_state_color_{{this.model.order_status}}">{{this.model.order_status_name}}</span>
+        </li>
+      </ul>
+
+      <div class="space_t_normal">
+        {{input type="number" required="required" step="1" min="0" name="quantity" value=quantity id="quantity" class="input_text" placeholder="Quantità da ritornare"}}
+      </div>
+      <div class="space_t_normal">
+        <select required="required" class="" name="operators">
+          <option value="0" disabled selected>Seleziona</option>
+          {{#each this.operators as |operator|}}
+          <option onclick={{action (mut this.selectedOp) operator.id}} value={{operator.id}}>{{operator.name}}</option>
+          {{/each}}
+        </select>
+        <label for="operators" class="space_r_10">Operatore</label>
+      </div>
+    </div>
+    <div class="space_b_normal">
+      <div class="center">
+        <button type="button" class="button" name="confirmReturning" {{action "confirmReturning"}}>Conferma</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="overlay"></div>
+</div>
+
+{{outlet}}

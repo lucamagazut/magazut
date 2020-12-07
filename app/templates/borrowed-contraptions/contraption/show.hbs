@@ -1,0 +1,62 @@
+<div>
+  <div class="popup">
+    <a href="#" class="close_icon" {{action 'back'}}></a>
+    <div class="popup_inner">
+      <h4>{{this.model.denomination}}</h4>
+      <ul class="list_info">
+        <li>{{this.model.id_code}}</li>
+        <li>
+          <div>
+            Prestato a <strong>{{this.model.complete_employee_name}}</strong> in quantità <strong>{{this.model.qt_to_return}}</strong>
+          </div>
+        </li>
+        <li>
+          <div class="space_t_normal">
+            Inserire la quantità
+          </div>
+
+          <div class="space_t_half half_width">
+            {{input type="number" required="required" step="1" min="1" name="returned_qt" class="input_text" placeholder="Scrivi quantità" value=returned_qt id="returned_qt"}}
+          </div>
+        </li>
+      </ul>
+
+      <div class="buttons_cont clearfix">
+        <div class="table fright">
+          <div class="table-row">
+            <div class="table-cell">
+              <button type="button" class="button" name="borrowedReturnButton" {{action "returnBorrowed" this.model returned_qt}}>Ritornato</button>
+            </div>
+            <div class="table-cell">
+              <button type="button" class="button" name="borrowedBrokenButton" {{action "brokenBorrowed" this.model returned_qt}}>Rotto</button>
+            </div>
+          </div>
+          <div class="table-row second_row">
+            <div class="table-cell">
+              {{#if (if-diff-than this.model.employee_id 1000)}}
+                <button type="button" class="button" name="borrowedSharpenButton" {{action "changeBorrowedEmployee" this.model returned_qt 1000}}>Affilare</button>
+              {{else}}
+                <button class="isDisabled button" type="button" disabled="disabled" name="button">Affilare</button>
+              {{/if}}
+            </div>
+            <div class="table-cell">
+              {{#link-to 'borrowed-contraptions.contraption.borrow' class="button"}}
+              Trasferisci
+              {{/link-to}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="option_buttons_cont">
+        <ul>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <div class="overlay"></div>
+
+</div>
+
+{{outlet}}

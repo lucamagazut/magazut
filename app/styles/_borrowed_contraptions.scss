@@ -1,0 +1,52 @@
+.borrowed_list{
+  max-width: 100%;
+  margin-top:2em;
+  thead{
+    border-bottom: 2px solid black;
+  }
+  th{
+    font-size: 1.3em;
+    line-height: 1.1em;
+    font-weight: bold;
+    padding: 0 15px 5px 15px;
+    box-sizing: border-box;
+  }
+  tbody{
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    tr{
+      border-bottom: 2px solid black;
+    }
+    td{
+      padding:20px 10px;
+      border-right: 1px solid lightgrey;
+    }
+
+    .available_qt{
+      text-align: center;
+    }
+  }
+}
+
+#borrowed_contraption_show{
+  .buttons_cont{
+    text-align: right;
+    margin-top: 35px;
+    .table{
+      display: table;
+    }
+    .table-row{
+      display: table-row;
+      &.second_row{
+        .table-cell{
+          padding-top: 20px;
+        }
+      }
+    }
+    .table-cell{
+      padding-left: 10px;
+      text-align: center;
+      display: table-cell;
+    }
+  }
+}

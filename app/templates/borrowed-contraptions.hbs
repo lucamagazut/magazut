@@ -1,0 +1,19 @@
+<MenuHeader/>
+
+<div class="search_contraption">
+  <h2>
+    Utensili prestati
+  </h2>
+
+{{#if (if-more-than this.model.length 0)}}
+  <BorrowedList
+  @showBorrowedContraption={{action "showBorrowedContraption"}}
+  @list={{this.model}}
+  />
+  {{else}}
+  <div  class="space_t_10">
+    <strong>Nessun utensile prestato</strong>
+  </div>
+{{/if}}
+</div>
+{{outlet}}

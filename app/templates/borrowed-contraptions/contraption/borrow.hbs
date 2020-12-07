@@ -1,0 +1,45 @@
+<div>
+  <div class="popup">
+    <a href="#" class="close_icon" {{action 'back'}}></a>
+    <div class="popup_inner">
+      <h3>Trasferisci ad altro operatore</h3>
+      <h4>{{this.model.denomination}}</h4>
+      <ul class="list_info">
+        <li>{{this.model.id_code}}</li>
+        <li>
+          <div>
+            Prestato a <strong>{{this.model.complete_employee_name}}</strong> in quantità <strong>{{this.model.qt_to_return}}</strong>
+          </div>
+        </li>
+        <li>
+          <div class="space_t_normal">
+            Inserire la quantità
+          </div>
+
+          <div class="space_t_half half_width">
+            {{input type="number" required="required" step="1" min="1" name="returned_qt" class="input_text" placeholder="Scrivi quantità" value=returned_qt id="returned_qt"}}
+          </div>
+        </li>
+        <li>L'attrezzatura verrà prestata a</li>
+        <li>
+          <FSelect @change={{action "onChangeOperator"}} @list={{this.operators}} @value={{this.model.employee_id}}/>
+        </li>
+      </ul>
+      <div class="space_b_normal space_t_10">
+        <div class="center space_t_10">
+          <button class="button" type="button" name="confirmChangeBorrowEmployee" {{action "confirmChangeBorrowEmployee" this.model returned_qt}}>Esegui</button>
+        </div>
+      </div>
+      <div class="option_buttons_cont">
+        <ul>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <div class="overlay"></div>
+
+</div>
+
+{{outlet}}

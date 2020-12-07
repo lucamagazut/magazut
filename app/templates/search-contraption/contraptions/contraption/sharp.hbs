@@ -1,0 +1,34 @@
+
+<div id="main_dicharge_contraption">
+  <div class="popup">
+    <a href="#" class="close_icon" {{action 'back'}}></a>
+    <div class="popup_inner">
+      <h3>Affila utensile</h3>
+      <div class="space_t_normal">
+        Seleziona quantità da affilare
+      </div>
+      <ul class="list_info">
+        <li><h4>{{this.model.denomination}}</h4></li>
+        <li>{{this.model.id_code}}</li>
+        <li>
+          <span>Quantità disponibile in magazzino: {{this.model.in_store_qt}}</span>
+          <span> == </span>
+          <span class="order_state_color_{{this.model.order_status}}">{{this.model.order_status_name}}</span>
+        </li>
+      </ul>
+
+      <div class="space_t_normal">
+        {{input type="number" required="required" step="1" min="0" name="quantity" value=quantity id="quantity" class="input_text" placeholder="Quantità da scaricare"}}
+      </div>
+    </div>
+    <div class="space_b_normal">
+      <div class="center">
+        <button type="button" class="button" name="confirmSharpening" {{action "confirmSharpening"}}>Conferma</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="overlay"></div>
+</div>
+
+{{outlet}}

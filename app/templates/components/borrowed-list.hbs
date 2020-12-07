@@ -1,0 +1,28 @@
+<table class="borrowed_list">
+  {{!-- <caption>Lista</caption> --}}
+  <thead>
+    <tr>
+      <th>Denominazione</th>
+      <th>Codice</th>
+      <th>Prestata a</th>
+      <th title="Quantità disponibile">Quantità Prestata</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.list as |ut| }}
+      {{#if (if-more-than ut.qt_to_return 0)}}
+        <tr class="clickable" {{action "onClickBorrowedContraption" ut}}>
+          <td class="denomination" >{{ut.denomination}}</td>
+          <td>{{ut.id_code}}</td>
+          <td>{{ut.complete_employee_name}}</td>
+          <td class="available_qt"><span title="Quantità disponibile">{{ut.qt_to_return}}</span></td>
+        </tr>
+      {{/if}}
+    {{/each}}
+  </tbody>
+  <tfoot>
+
+  </tfoot>
+</table>
+
+{{yield}}
