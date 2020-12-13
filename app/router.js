@@ -41,6 +41,7 @@ Router.map(function() {
   });
   this.route('utility', function() {
     this.route('send-mail');
+    this.route('allow-ip');
   });
 });
 

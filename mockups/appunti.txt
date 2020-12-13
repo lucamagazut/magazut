@@ -9,15 +9,15 @@ http://paletton.com/#uid=33x0u0krI-b++9XIQpCe2F+00ZA
 1) gestione errori
 2) ultima operazione per contraption, punta a hystori table
 4) ######QUANDO CLICCHI sulla text input del search, cancellare quello che c'era prima
-5) icona web
+5) ###########icona web
 6) su history, click su prestato porta alla pagina prestati
 7) rimuovere history entry inutili (creazione, errore, bla bla bla)
 8) ######mettere apposto history presta ritorna
 9) ######catturare e mostrare errore server nel warning
 10) ######metodo per convertire direttamente da prestata a scaricata?
 11) #######conferma cambio stato ut
-12) login per ip
-13) rivedere tutti i sendmail. Anche alla creazione
+12) ################login per ip
+13) ##############rivedere tutti i sendmail. Anche alla creazione
 14) ultime ricerca contraption
 15) #######in app funzionalità per mandare mail a comando a chi si vuole per testing
 16) #######history rotto

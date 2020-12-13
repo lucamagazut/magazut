@@ -8,8 +8,13 @@ export default Route.extend({
   errorText:'',
   currentController:null,
   beforeModel(){
-    this.store.findAll('category');
-    this.store.findAll('operator');
+    this.store.findAll('category')
+    .then(()=>{
+      this.store.findAll('operator');
+    })
+    .catch((error)=>{
+      this.transitionTo('/utility/allow-ip')
+    });
   },
   setupController: function(controller, model) {
     this._super(controller, model);
@@ -43,6 +48,10 @@ export default Route.extend({
       Ember.run.later((function() {
         _t.currentController.set('isErrorShowed', false);
       }), 5000);
+    },
+    reloadApp(){
+      this.transitionTo('search-contraption');
+      this.refresh();
     }
   }
 });

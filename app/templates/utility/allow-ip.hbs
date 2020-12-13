@@ -1,0 +1,19 @@
+<AppTitle/>
+
+<div id="add_contraption_main">
+  <h2>Autorizza computer</h2>
+  <div class="clearfix space_t_10">
+
+    <div class="space_t_10 half_width">
+      {{input type="text" required="required" name="allowed_ip_password" class="input_text" placeholder="Inserisci password" value=allowed_ip_password id="allowed_ip_password"}}
+    </div>
+
+  </div>
+  <div class="space_b_normal space_t_10">
+    <div class="space_t_10">
+      <button class="button" type="button" name="sendAllowIpPassword" {{action "sendAllowIpPassword" allowed_ip_password}}>Esegui</button>
+    </div>
+  </div>
+</div>
+
+{{outlet}}

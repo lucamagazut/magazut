@@ -114,6 +114,8 @@ export default Route.extend({
     },
     onClickContraptionsNext_b2(items){
       if(items === this.get('itemsForPage')){
+        console.log('paginatio next incrementProperty');
+        console.log(`paginazione in click ${this.get('pagination')}`);
         this.incrementProperty('pagination');
         this.refresh();
       }

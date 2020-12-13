@@ -8,8 +8,6 @@ import { observer } from '@ember/object';
 
 export default Route.extend({
   borrowApi:service('borrow-api'),
-  alignStore:service('align-store'),
-
 
   model(params){
     return this.store.peekRecord('borrowed-contraption', params.contraption_id);
