@@ -7,7 +7,7 @@ export default Component.extend({
       event.target.blur();
     },
     onFocusSearch(){
-      event.target.value = '';
+      // event.target.value = '';
     }
   }
 });
