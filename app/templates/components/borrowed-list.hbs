@@ -12,8 +12,8 @@
     {{#each this.list as |ut| }}
       {{#if (if-more-than ut.qt_to_return 0)}}
         <tr class="clickable" {{action "onClickBorrowedContraption" ut}}>
-          <td class="denomination" >{{ut.denomination}}</td>
-          <td>{{ut.id_code}}</td>
+          <td class="denomination denomination_text" >{{ut.denomination}}</td>
+          <td class="id_code_text">{{ut.id_code}}</td>
           <td>{{ut.complete_employee_name}}</td>
           <td class="available_qt"><span title="Quantità disponibile">{{ut.qt_to_return}}</span></td>
         </tr>

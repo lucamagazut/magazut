@@ -27,8 +27,8 @@
         {{#if history.transaction_time}}
         <tr>
           <td title="Data della transizione">{{history.transaction_time}}</td>
-          <td class="clickable" title="Clicca per history del prodotto" {{action "onClickHistory" history.contraption_id}}>{{history.contraption_denomination}}</td>
-          <td title="Codice">{{history.contraption_id_code}}</td>
+          <td class="clickable denomination_text" title="Clicca per history del prodotto" {{action "onClickHistory" history.contraption_id}}>{{history.contraption_denomination}}</td>
+          <td title="Codice" class="id_code_text">{{history.contraption_id_code}}</td>
           <td class="clickable" title="Clicca per history operatore" {{action "onClickUserHistory" history.user_id}}>{{history.employee_complete_name}}</td>
           <td title="Quantità ricevuta">{{history.involved_quantity}}</td>
           <td title="Tipo di transazione">{{history.it_short_description}}</td>

@@ -227,6 +227,10 @@ select{
   text-transform: capitalize;
 }
 
+.denomination_text, .id_code_text{
+  text-transform: uppercase;
+}
+
 .isDisabled {
   pointer-events: none;
   color: currentColor;

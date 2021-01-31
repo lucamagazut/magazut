@@ -23,8 +23,8 @@
   <tbody>
     {{#each this.list as |ut| }}
       <tr>
-        <td class="denomination clickable" {{action "onClickContraption" ut}}>{{ut.denomination}}</td>
-        <td class="clickable" {{action "onClickContraption" ut}}>{{ut.id_code}}</td>
+        <td class="denomination clickable denomination_text" {{action "onClickContraption" ut}}>{{ut.denomination}}</td>
+        <td class="clickable id_code_text" {{action "onClickContraption" ut}}>{{ut.id_code}}</td>
         <td class="clickable" {{action "onClickContraption" ut}}>{{ut.typeName}}</td>
         <td class="clickable" {{action "onClickContraption" ut}}>
           <ul>

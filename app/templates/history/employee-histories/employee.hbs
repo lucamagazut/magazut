@@ -25,8 +25,8 @@
       <tr>
         <td title="Data della transizione">{{history.transaction_time}}</td>
         <td title="Quantità">{{history.quantity}}</td>
-        <td title="Nomenclatura Aggeggio" class="clickable" {{action "onClickHistory" history.contraption_id}}>{{history.contraption_denomination}}</td>
-        <td title="Codice">{{history.contraption_id_code}}</td>
+        <td title="Nomenclatura Aggeggio" class="clickable denomination_text" {{action "onClickHistory" history.contraption_id}}>{{history.contraption_denomination}}</td>
+        <td title="Codice" class="id_code_text">{{history.contraption_id_code}}</td>
         <td title="Tipo di transazione">{{history.it_short_description}}</td>
       </tr>
       {{/if}}
